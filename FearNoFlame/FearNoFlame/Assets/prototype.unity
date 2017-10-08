@@ -289,6 +289,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d812086822df0e4296ac73a17122210, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cellPrefab: {fileID: 114559445814199266, guid: 543097bb9ebebf042b77c43efaa169f4,
+    type: 2}
+  updateInterval: 0.55
+  GMstate: 0
+  sizeX: 0
+  sizeY: 0
+  mycelllist: []
+  startFire: 0
 --- !u!4 &1205234175
 Transform:
   m_ObjectHideFlags: 0

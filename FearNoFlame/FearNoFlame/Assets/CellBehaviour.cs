@@ -9,19 +9,21 @@ public class CellBehaviour : MonoBehaviour {
        LowIntFire,MiddleIntFire,HighIntFire, BurntGround,StillGreen,
     }
 
+
+    public bool IsonFire;
     public Material LowFire;
     public Material MiddleFire;
     public Material HighFire;
     public Material BurnGround;
     public Material GreenStillGreen;
 
-    public GameManager GM;
+    [HideInInspector] public GameManager GM;
 
-    public int x, y;
+    [HideInInspector] public int x, y;
 
-    public CellBehaviour[] neighbours;
+    [HideInInspector] public CellBehaviour[] neighbours;
 
-    public StatesOfCell currentState;
+    [HideInInspector] public StatesOfCell currentState;
 
     public StatesOfCell nextState;
 
@@ -35,58 +37,57 @@ public class CellBehaviour : MonoBehaviour {
     {
         meshRenderer = GetComponent<MeshRenderer>();
 
-        FireDangerIndex = Random.Range(0, 100);
+        FireDangerIndex = Random.Range(12, 100);
 
-        FuelLoadsTones = Random.Range(0, 30);
+        GM = GetComponent<GameManager>();
+
+        IsonFire = false;
+
+        
     }
 
     
 
     //this method implements cell's behaviour
 
-    void CellsUpdate()
+    public void CellsUpdate()
     {
         nextState = currentState;
         int OnFireCells = GetCellOnFire();
-        if(FireDangerIndex < 11)
-        {
-            nextState = StatesOfCell.StillGreen;
-        }else if(FireDangerIndex >12 && FireDangerIndex < 24 )
-        {
-            nextState = StatesOfCell.LowIntFire;
-            if (OnFireCells != 3) // if cell 3 alive neighbours
-                nextState = StatesOfCell.BurntGround;
-        }
-        else if(FireDangerIndex > 25 && FireDangerIndex < 49 )
-        {
-            nextState = StatesOfCell.MiddleIntFire;
-            if (OnFireCells != 3) // if cell 3 alive neighbours
-                nextState = StatesOfCell.BurntGround;
-        }
-        else if(FireDangerIndex > 50 && FireDangerIndex <74)
-        {
-            nextState = StatesOfCell.MiddleIntFire;
-            if (OnFireCells != 3) // if cell 3 alive neighbours
-                nextState = StatesOfCell.BurntGround;
-        }
-        else if(FireDangerIndex >75 && FireDangerIndex < 99)
-        {
-            nextState = StatesOfCell.HighIntFire;
-            if (OnFireCells != 3) // if cell 3 alive neighbours
-                nextState = StatesOfCell.BurntGround;
-        }
-        else if(FireDangerIndex >99)
-        {
-            nextState = StatesOfCell.HighIntFire;
-            if (OnFireCells != 3) // if cell 3 alive neighbours
-                nextState = StatesOfCell.BurntGround;
-        }
-        else
-        {
-            nextState = StatesOfCell.StillGreen;
-            if (OnFireCells != 3) // if cell 3 alive neighbours
-                nextState = StatesOfCell.BurntGround;
-        }
+
+        Debug.Log(OnFireCells);
+       
+            if (FireDangerIndex > 12 && FireDangerIndex < 24 && IsonFire == true)
+            {
+                nextState = StatesOfCell.LowIntFire;
+
+            }
+            else if (FireDangerIndex > 25 && FireDangerIndex < 49 && IsonFire == true)
+            {
+                nextState = StatesOfCell.MiddleIntFire;
+
+            }
+            else if (FireDangerIndex > 50 && FireDangerIndex < 74 && IsonFire == true)
+            {
+                nextState = StatesOfCell.MiddleIntFire;
+
+            }
+            else if (FireDangerIndex > 75 && FireDangerIndex < 99 && IsonFire == true)
+            {
+                nextState = StatesOfCell.HighIntFire;
+
+            }
+            else if (FireDangerIndex > 99 && IsonFire == true)
+            {
+                nextState = StatesOfCell.HighIntFire;
+
+            }
+            else
+            {
+                nextState = StatesOfCell.StillGreen;
+
+            }
+      
     }
 
     //apply new cell state and update the material
