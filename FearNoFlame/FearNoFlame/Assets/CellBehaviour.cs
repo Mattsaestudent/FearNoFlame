@@ -21,7 +21,7 @@ public class CellBehaviour : MonoBehaviour {
 
     [HideInInspector] public int x, y;
 
-    [HideInInspector] public CellBehaviour[] neighbours;
+    public CellBehaviour[] neighbours;
 
     [HideInInspector] public StatesOfCell currentState;
 
@@ -50,12 +50,34 @@ public class CellBehaviour : MonoBehaviour {
 
     //this method implements cell's behaviour
 
+   
+
     public void CellsUpdate()
     {
         nextState = currentState;
         int OnFireCells = GetCellOnFire();
 
-        Debug.Log(OnFireCells);
+        if (this.IsonFire == true)
+        {
+            if (neighbours[0].IsonFire == false)
+            {
+                neighbours[0].IsonFire = true;
+            }
+            else
+            {
+                nextState = StatesOfCell.BurntGround;
+            }
+
+            if (neighbours[1].IsonFire == false)
+            {
+                neighbours[1].IsonFire = true;
+            }
+            else
+            {
+                nextState = StatesOfCell.BurntGround;
+            }
+        }
+        
        
             if (FireDangerIndex > 12 && FireDangerIndex < 24 && IsonFire == true)
             {
@@ -134,16 +156,16 @@ public class CellBehaviour : MonoBehaviour {
 
         for(int i = 0; i < neighbours.Length; i++)
         {
-            if(neighbours[i] != null && neighbours[i].currentState == StatesOfCell.LowIntFire)
+            if(neighbours[i] != null && neighbours[i].IsonFire == true)
             {
-                ret++;
-            }else if(neighbours[i] != null && neighbours[i].currentState == StatesOfCell.MiddleIntFire)
+                ret+=1;
+            }else if(neighbours[i] != null && neighbours[i].IsonFire == true)
             {
-                ret++;
+                ret += 1;
             }
-            else if(neighbours[i] != null && neighbours[i].currentState == StatesOfCell.HighIntFire)
+            else if(neighbours[i] != null && neighbours[i].IsonFire == true)
             {
-                ret++;
+                ret += 1;
             }
         }
         return ret;

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
 
     public CellBehaviour cellPrefab; //Cell prefab
 
-    public float updateInterval = 0.05f; //delay between cell update
+    public float updateInterval = 1000f; //delay between cell update
 
     [HideInInspector] public CellBehaviour[,] cells; // matrix of cells
 
@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour {
 
         
     }
+
+   
 
     public void Init(int x, int y)
     {
@@ -90,7 +92,7 @@ public class GameManager : MonoBehaviour {
                 cells[i, j] = c;
                 c.Init(this, i, j); // init cell by passing this object to it
                 
-                // c.SetRandomState();
+                
                 // register cell's methods to proper actions
                 cellUpdates += c.CellsUpdate;
                 cellApplyUpdates += c.CellApplyTheUpdate;
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour {
         }
 
     }
+
 
     // create array with adjacent cells to cell with coordinates (x,y)
     public CellBehaviour[] GetNeighbours(int x, int y)
