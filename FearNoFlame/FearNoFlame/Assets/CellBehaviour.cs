@@ -73,9 +73,13 @@ public class CellBehaviour : MonoBehaviour {
                 {
                     neighbours[0].IsonFire = true;
                 }
-
-
+            if (neighbours[3].IsonFire == false)
+            {
+                neighbours[3].IsonFire = true;
             }
+
+
+        }
             else if (this.IsonFire == true && FireDangerIndex >= 25 && FireDangerIndex <= 49)
             {
                 if (neighbours[2].IsonFire == false)

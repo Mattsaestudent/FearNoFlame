@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     public enum GameManagerStates {
         Idle,Running
     }
-
+    public int CellNumber;
     public CellBehaviour cellPrefab; //Cell prefab
 
     public float updateInterval = 1000f; //delay between cell update
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         mycelllist = new List<CellBehaviour>();
-        Init(50, 50);
-        startFire = UnityEngine.Random.Range(12, 500);
+        Init(50,50 );
+       
 
         Debug.Log(startFire);
 
@@ -46,8 +46,46 @@ public class GameManager : MonoBehaviour {
 
     void SetOnFire()
     {
-        var firstItem = mycelllist[startFire];
-        firstItem.IsonFire = true;
+        startFire = UnityEngine.Random.Range(1, 6);
+
+        
+            if (startFire == 1)
+        {
+            var firstItem = mycelllist[149];
+            firstItem.IsonFire = true;
+        }
+
+        if (startFire == 2)
+        {
+            var firstItem = mycelllist[599];
+            firstItem.IsonFire = true;
+        }
+
+        if (startFire == 3)
+        {
+            var firstItem = mycelllist[1049];
+            firstItem.IsonFire = true;
+        }
+
+        if (startFire == 4)
+        {
+            var firstItem = mycelllist[1499];
+            firstItem.IsonFire = true;
+        }
+
+        if (startFire == 5)
+        {
+            var firstItem = mycelllist[1849];
+            firstItem.IsonFire = true;
+        }
+
+        if (startFire == 6)
+        {
+            var firstItem = mycelllist[2299];
+            firstItem.IsonFire = true;
+        }
+
+
     }
 
 
@@ -96,8 +134,8 @@ public class GameManager : MonoBehaviour {
                 mycelllist.Add(c);
                 cells[i, j] = c;
                 c.Init(this, i, j); // init cell by passing this object to it
-                
-                
+
+                c.name = CellNumber++.ToString();
                 // register cell's methods to proper actions
                 cellUpdates += c.CellsUpdate;
                 cellApplyUpdates += c.CellApplyTheUpdate;
