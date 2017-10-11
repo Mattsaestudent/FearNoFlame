@@ -33,19 +33,26 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         mycelllist = new List<CellBehaviour>();
-        Init(25, 20);
-        startFire = UnityEngine.Random.Range(0, 500);
-      
-        var firstItem = mycelllist.ElementAt(startFire);
-    
-        firstItem.IsonFire = true;
-        
+        Init(50, 50);
+        startFire = UnityEngine.Random.Range(12, 500);
+
+        Debug.Log(startFire);
+
         Run();
 
-        
+        SetOnFire();
+
     }
 
-   
+    void SetOnFire()
+    {
+        var firstItem = mycelllist[startFire];
+        // mycelllist[324].IsonFire = true;
+        // Debug.Log(firstItem);
+        firstItem.IsonFire = true;
+    }
+
+
 
     public void Init(int x, int y)
     {
@@ -114,7 +121,7 @@ public class GameManager : MonoBehaviour {
     // create array with adjacent cells to cell with coordinates (x,y)
     public CellBehaviour[] GetNeighbours(int x, int y)
     {
-        CellBehaviour[] result = new CellBehaviour[8];
+        CellBehaviour[] result = new CellBehaviour[4];
         result[0] = cells[x, (y + 1) % sizeY]; //top
         result[1] = cells[(x + 1) % sizeX, y % sizeY]; //right
         result[2] = cells[x % sizeX, (sizeY + y - 1) % sizeY];//bottom
@@ -127,33 +134,41 @@ public class GameManager : MonoBehaviour {
     // this method stops current coroutine and starts new its instance
     public void Run()
     {
-        GMstate = GameManagerStates.Running;
-        if (coroutine != null)
-            StopCoroutine(coroutine);
-        coroutine = RunCoroutine();
-        StartCoroutine(coroutine);
+        StartCoroutine(RunCoroutine());
     }
     private IEnumerator RunCoroutine()
     {
-        while (GMstate == GameManagerStates.Running)
-        {
-            UpdateCells();
-            yield return new WaitForSeconds(updateInterval);
-        }
+        yield return new WaitForSeconds(555);
+        UpdateCells();
+        yield return new WaitForSeconds(555);
+        UpdateCells();
+        yield return new WaitForSeconds(555);
+        UpdateCells();
+        yield return new WaitForSeconds(555);
+        UpdateCells();
+        yield return new WaitForSeconds(555);
+        
+
+
+    }
+
+    void CallNextUpdate()
+    {
+        UpdateCells();
     }
 
   
         // Use this for initialization
         void Start ()
     {
-        
+        CallNextUpdate();
 
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-       
 
+       CallNextUpdate();
     }
 }

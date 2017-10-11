@@ -20,8 +20,8 @@ public class CellBehaviour : MonoBehaviour {
     [HideInInspector] public GameManager GM;
 
     [HideInInspector] public int x, y;
-
-    public CellBehaviour[] neighbours;
+    
+     public CellBehaviour[] neighbours;
 
     [HideInInspector] public StatesOfCell currentState;
 
@@ -37,13 +37,13 @@ public class CellBehaviour : MonoBehaviour {
     {
         meshRenderer = GetComponent<MeshRenderer>();
 
-        FireDangerIndex = Random.Range(12, 100);
+        FireDangerIndex = Random.Range(13, 100);
 
         GM = GetComponent<GameManager>();
 
         IsonFire = false;
 
-        
+       
     }
 
     
@@ -57,28 +57,64 @@ public class CellBehaviour : MonoBehaviour {
         nextState = currentState;
         int OnFireCells = GetCellOnFire();
 
-        if (this.IsonFire == true)
+        if (this.IsonFire == true && FireDangerIndex >= 12 && FireDangerIndex <= 24)
         {
             if (neighbours[0].IsonFire == false)
             {
                 neighbours[0].IsonFire = true;
             }
-            else
+          
+            
+        }
+        else if (this.IsonFire == true && FireDangerIndex >= 25 && FireDangerIndex <= 49)
+        {
+            if (neighbours[2].IsonFire == false)
             {
-                nextState = StatesOfCell.BurntGround;
+                neighbours[2].IsonFire = true;
             }
 
+        }
+        else if (this.IsonFire == true && FireDangerIndex >= 50 && FireDangerIndex<= 74)
+        {
+            if (neighbours[3].IsonFire == false)
+            {
+                neighbours[3].IsonFire = true;
+            }
+            if (neighbours[2].IsonFire == false)
+            {
+                neighbours[2].IsonFire = true;
+            }
+
+
+
+        }
+        else if (this.IsonFire == true && FireDangerIndex >= 75 && FireDangerIndex <= 99)
+        {
             if (neighbours[1].IsonFire == false)
             {
                 neighbours[1].IsonFire = true;
             }
-            else
+            if (neighbours[3].IsonFire == false)
             {
-                nextState = StatesOfCell.BurntGround;
+                neighbours[3].IsonFire = true;
             }
+
         }
-        
-       
+        else if (this.IsonFire == true && FireDangerIndex > 99)
+        {
+            if (neighbours[2].IsonFire == false)
+            {
+                neighbours[2].IsonFire = true;
+            }
+            if (neighbours[3].IsonFire == false)
+            {
+                neighbours[3].IsonFire = true;
+            }
+
+        }
+
+
+
             if (FireDangerIndex > 12 && FireDangerIndex < 24 && IsonFire == true)
             {
                 nextState = StatesOfCell.LowIntFire;
