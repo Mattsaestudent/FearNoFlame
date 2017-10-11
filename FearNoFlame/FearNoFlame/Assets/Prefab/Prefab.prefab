@@ -110,7 +110,9 @@ MonoBehaviour:
   MiddleFire: {fileID: 2100000, guid: b6ccc8a122a583048a3d7becf53a2e22, type: 2}
   HighFire: {fileID: 2100000, guid: 65a7970ede7f63d4aa1fdd86f7be89ad, type: 2}
   BurnGround: {fileID: 2100000, guid: 87412afec0f0d3a4ba3edfd8e9f2a5e2, type: 2}
-  GreenStillGreen: {fileID: 2100000, guid: f22f39444b57a4a42ad5dfb03e885576, type: 2}
+  TreeGreen: {fileID: 2100000, guid: f22f39444b57a4a42ad5dfb03e885576, type: 2}
+  bushMat: {fileID: 2100000, guid: b4e8fbb60a95d5c4ebb69823bc86557d, type: 2}
+  grassMatt: {fileID: 2100000, guid: 4112524c1cde2a842955f366f1946375, type: 2}
   GM: {fileID: 0}
   x: 0
   y: 0
@@ -119,3 +121,5 @@ MonoBehaviour:
   nextState: 0
   FireDangerIndex: 0
   FuelLoadsTones: 0
+  enviromentalMakeUp: 0
+  BurnOut: 0

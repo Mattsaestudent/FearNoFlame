@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour {
 
         Debug.Log(startFire);
 
-        Run();
+        //Run();
 
         SetOnFire();
 
@@ -47,8 +47,6 @@ public class GameManager : MonoBehaviour {
     void SetOnFire()
     {
         var firstItem = mycelllist[startFire];
-        // mycelllist[324].IsonFire = true;
-        // Debug.Log(firstItem);
         firstItem.IsonFire = true;
     }
 

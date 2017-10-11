@@ -15,7 +15,10 @@ public class CellBehaviour : MonoBehaviour {
     public Material MiddleFire;
     public Material HighFire;
     public Material BurnGround;
-    public Material GreenStillGreen;
+    public Material TreeGreen;
+    public Material bushMat;
+    public Material grassMatt;
+
 
     [HideInInspector] public GameManager GM;
 
@@ -33,11 +36,17 @@ public class CellBehaviour : MonoBehaviour {
 
     public int FuelLoadsTones;
 
+    public int enviromentalMakeUp;
+
+    public int BurnOut;
+
     void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
 
         FireDangerIndex = Random.Range(13, 100);
+
+        enviromentalMakeUp = Random.Range(1, 100);
 
         GM = GetComponent<GameManager>();
 
@@ -57,61 +66,66 @@ public class CellBehaviour : MonoBehaviour {
         nextState = currentState;
         int OnFireCells = GetCellOnFire();
 
-        if (this.IsonFire == true && FireDangerIndex >= 12 && FireDangerIndex <= 24)
-        {
-            if (neighbours[0].IsonFire == false)
+       
+            if (this.IsonFire == true && FireDangerIndex >= 12 && FireDangerIndex <= 24)
             {
-                neighbours[0].IsonFire = true;
-            }
-          
-            
-        }
-        else if (this.IsonFire == true && FireDangerIndex >= 25 && FireDangerIndex <= 49)
-        {
-            if (neighbours[2].IsonFire == false)
-            {
-                neighbours[2].IsonFire = true;
-            }
-
-        }
-        else if (this.IsonFire == true && FireDangerIndex >= 50 && FireDangerIndex<= 74)
-        {
-            if (neighbours[3].IsonFire == false)
-            {
-                neighbours[3].IsonFire = true;
-            }
-            if (neighbours[2].IsonFire == false)
-            {
-                neighbours[2].IsonFire = true;
-            }
+                if (neighbours[0].IsonFire == false)
+                {
+                    neighbours[0].IsonFire = true;
+                }
 
 
+            }
+            else if (this.IsonFire == true && FireDangerIndex >= 25 && FireDangerIndex <= 49)
+            {
+                if (neighbours[2].IsonFire == false)
+                {
+                    neighbours[2].IsonFire = true;
+                }
+                if (neighbours[1].IsonFire == false)
+                {
+                    neighbours[1].IsonFire = true;
+                }
 
-        }
-        else if (this.IsonFire == true && FireDangerIndex >= 75 && FireDangerIndex <= 99)
-        {
-            if (neighbours[1].IsonFire == false)
-            {
-                neighbours[1].IsonFire = true;
             }
-            if (neighbours[3].IsonFire == false)
+            else if (this.IsonFire == true && FireDangerIndex >= 50 && FireDangerIndex <= 74)
             {
-                neighbours[3].IsonFire = true;
-            }
+                if (neighbours[3].IsonFire == false)
+                {
+                    neighbours[3].IsonFire = true;
+                }
+                if (neighbours[2].IsonFire == false)
+                {
+                    neighbours[2].IsonFire = true;
+                }
 
-        }
-        else if (this.IsonFire == true && FireDangerIndex > 99)
-        {
-            if (neighbours[2].IsonFire == false)
-            {
-                neighbours[2].IsonFire = true;
-            }
-            if (neighbours[3].IsonFire == false)
-            {
-                neighbours[3].IsonFire = true;
-            }
 
-        }
+
+            }
+            else if (this.IsonFire == true && FireDangerIndex >= 75 && FireDangerIndex <= 99)
+            {
+                if (neighbours[1].IsonFire == false)
+                {
+                    neighbours[1].IsonFire = true;
+                }
+                if (neighbours[3].IsonFire == false)
+                {
+                    neighbours[3].IsonFire = true;
+                }
+
+            }
+            else if (this.IsonFire == true && FireDangerIndex > 99)
+            {
+                if (neighbours[2].IsonFire == false)
+                {
+                    neighbours[2].IsonFire = true;
+                }
+                if (neighbours[3].IsonFire == false)
+                {
+                    neighbours[3].IsonFire = true;
+                }
+
+            }
 
 
 
@@ -140,12 +154,37 @@ public class CellBehaviour : MonoBehaviour {
                 nextState = StatesOfCell.HighIntFire;
 
             }
-            else
+            else if(FireDangerIndex >1)
             {
                 nextState = StatesOfCell.StillGreen;
 
             }
-      
+        
+
+        if (currentState == StatesOfCell.LowIntFire && IsonFire == true)
+        {
+
+            nextState = StatesOfCell.BurntGround;
+            FireDangerIndex = 0;
+
+        }
+
+        if (currentState == StatesOfCell.MiddleIntFire && IsonFire == true)
+        {
+
+            nextState = StatesOfCell.BurntGround;
+            FireDangerIndex = 0;
+
+        }
+
+        if (currentState == StatesOfCell.HighIntFire )
+        {
+
+            nextState = StatesOfCell.BurntGround;
+            FireDangerIndex = 0;
+
+        }
+
     }
 
     //apply new cell state and update the material
@@ -168,22 +207,42 @@ public class CellBehaviour : MonoBehaviour {
 
     private void UpdateMaterialOnCell()
     {
-        if(currentState == StatesOfCell.LowIntFire )
+        if (currentState == StatesOfCell.LowIntFire)
         {
             meshRenderer.sharedMaterial = LowFire;
-        }else if(currentState == StatesOfCell.MiddleIntFire)
+        } else if (currentState == StatesOfCell.MiddleIntFire)
         {
             meshRenderer.sharedMaterial = MiddleFire;
-        }else if(currentState == StatesOfCell.HighIntFire)
+        } else if (currentState == StatesOfCell.HighIntFire)
         {
-            meshRenderer.sharedMaterial = HighFire; 
-        }else if(currentState == StatesOfCell.BurntGround)
+            meshRenderer.sharedMaterial = HighFire;
+        } else if (currentState == StatesOfCell.BurntGround)
         {
             meshRenderer.sharedMaterial = BurnGround;
-        }else if(currentState == StatesOfCell.StillGreen)
+        } else
         {
-            meshRenderer.sharedMaterial = GreenStillGreen;
+            if (currentState == StatesOfCell.StillGreen)
+            {
+                if (enviromentalMakeUp <= 25)
+                {
+                    meshRenderer.sharedMaterial = TreeGreen;
+                }
+
+                if (enviromentalMakeUp >= 26 && enviromentalMakeUp <= 60)
+                {
+                    meshRenderer.sharedMaterial = bushMat;
+                }
+
+                if (enviromentalMakeUp >= 61)
+                {
+                    meshRenderer.sharedMaterial = bushMat;
+                }
+            }
         }
+
+       
+        
+      
     }
 
     private int GetCellOnFire()
@@ -207,6 +266,11 @@ public class CellBehaviour : MonoBehaviour {
         return ret;
     }
 
+    public IEnumerator BurnOuts()
+    {
+        yield return new WaitForSeconds(5);
+        currentState = StatesOfCell.BurntGround;
 
+    }
 
 }
