@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour {
 
     public void SpawnCells(int x, int y)
     {
+    
         cells = new CellBehaviour[x, y]; // create new cells' matrix
         for (int i = 0; i < x; i++)
         {
