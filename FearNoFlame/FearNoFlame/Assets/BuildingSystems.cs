@@ -58,10 +58,10 @@ public class BuildingSystems : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        Debug.Log(selectedObject);
+      
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
                 Vector3 mousePos = Input.mousePosition;
                 mousePos.z = 10.0f;
@@ -72,11 +72,13 @@ public class BuildingSystems : MonoBehaviour
                 {
                     Instantiate(selectedObject, mousePos, Quaternion.Euler(90,0,0));
                
-                    clicked = false;
+                  
                 }
                 
             }
         }
+
+        
     }
 
     void OnMouseDown()
