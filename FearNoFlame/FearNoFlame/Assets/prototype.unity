@@ -1654,6 +1654,7 @@ MonoBehaviour:
   sizeX: 0
   sizeY: 0
   mycelllist: []
+  movementlist: []
   startFire: 0
 --- !u!4 &1205234175
 Transform:

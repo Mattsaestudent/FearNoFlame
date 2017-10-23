@@ -56,29 +56,28 @@ public class BuildingSystems : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-      
+
         if (!EventSystem.current.IsPointerOverGameObject())
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Vector3 mousePos = Input.mousePosition;
-                mousePos.z = 10.0f;
-                mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-                mousePos.y = 1f;
-                clicked = true;
-                if (clicked == true)
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit, 300))
                 {
-                    Instantiate(selectedObject, mousePos, Quaternion.Euler(90,0,0));
-               
-                  
+                    if (hit.transform.tag == "terrain")
+                    {
+                        Instantiate(selectedObject, new Vector3(hit.point.x, 1f, hit.point.z), Quaternion.Euler(90, 0, 0));
+
+                    }
                 }
-                
+
+
             }
         }
-
-        
     }
 
     void OnMouseDown()

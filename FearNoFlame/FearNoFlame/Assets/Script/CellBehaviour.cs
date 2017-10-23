@@ -40,6 +40,8 @@ public class CellBehaviour : MonoBehaviour {
 
     public int BurnOut;
 
+    
+
     void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -234,7 +236,7 @@ public class CellBehaviour : MonoBehaviour {
 
                 if (enviromentalMakeUp >= 26 && enviromentalMakeUp <= 60)
                 {
-                    meshRenderer.sharedMaterial = bushMat;
+                    meshRenderer.sharedMaterial = grassMatt;
                 }
 
                 if (enviromentalMakeUp >= 61)
