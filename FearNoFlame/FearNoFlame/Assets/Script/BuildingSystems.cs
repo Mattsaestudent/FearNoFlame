@@ -66,11 +66,11 @@ public class BuildingSystems : MonoBehaviour
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit, 300))
+                if (Physics.Raycast(ray, out hit))
                 {
                     if (hit.transform.tag == "terrain")
                     {
-                        Instantiate(selectedObject, new Vector3(hit.point.x, 1f, hit.point.z), Quaternion.Euler(90, 0, 0));
+                        Instantiate(selectedObject, new Vector3(hit.point.x, 0.51f, hit.point.z), Quaternion.Euler(90, 0, 0));
 
                     }
                 }

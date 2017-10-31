@@ -2,6 +2,3 @@ sceneSetups:
 - path: Assets/prototype.unity
   isLoaded: 1
   isActive: 1
-- path: Assets/Example.unity
-  isLoaded: 1
-  isActive: 0

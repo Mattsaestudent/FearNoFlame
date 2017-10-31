@@ -9,6 +9,13 @@ public class GameManager : MonoBehaviour {
     public enum GameManagerStates {
         Idle,Running
     }
+
+	public enum TurnBasedStates
+	{
+		FireSpread,PlayersTurn,PlayerWin,PlayerLose
+	}
+
+
     public int CellNumber;
     public CellBehaviour cellPrefab; //Cell prefab
 
@@ -17,6 +24,8 @@ public class GameManager : MonoBehaviour {
     [HideInInspector] public CellBehaviour[,] cells; // matrix of cells
 
     [HideInInspector] public GameManagerStates GMstate = GameManagerStates.Idle;
+
+	public TurnBasedStates TBStates = TurnBasedStates.FireSpread;
 
     [HideInInspector] public int sizeX; // game size in x-axis
     [HideInInspector] public int sizeY; // game size in y-axis
@@ -33,14 +42,16 @@ public class GameManager : MonoBehaviour {
 
     public int startFire;
 
+	public bool isStartOfGame = true;
+
     void Awake()
     {
         mycelllist = new List<CellBehaviour>();
 
         Init(50,50 );
        
-
-        Debug.Log(startFire);
+		isStartOfGame = true;
+        
 
         //Run();
 
@@ -183,7 +194,7 @@ public class GameManager : MonoBehaviour {
         result[1] = cells[(x + 1) % sizeX, y % sizeY]; //right
         result[2] = cells[x % sizeX, (sizeY + y - 1) % sizeY];//bottom
         result[3] = cells[(sizeX + x - 1) % sizeX, y % sizeY]; //left
-        result[4] = cells[x, (y + 1) % sizeY]; // top
+       
        
 
         return result;
@@ -220,7 +231,49 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    void CallNextUpdate()
+	public void WhoTurnIsIT()
+	{
+
+
+			if (TBStates == TurnBasedStates.FireSpread) {
+			if (isStartOfGame == true)
+			{
+				SetOnFire();
+				isStartOfGame = false;
+			}
+			CallNextUpdate ();
+			CallNextUpdate ();
+			CallNextUpdate ();
+			CallNextUpdate ();
+				TBStates = TurnBasedStates.PlayersTurn;
+			} else if (TBStates == TurnBasedStates.PlayersTurn)
+			{
+				
+
+			}
+			
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	void CallNextUpdate()
     {
         UpdateCells();
     }
@@ -229,7 +282,7 @@ public class GameManager : MonoBehaviour {
         // Use this for initialization
         void Start ()
     {
-        CallNextUpdate();
+        
 
 
 
@@ -238,7 +291,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
-       CallNextUpdate();
+		WhoTurnIsIT ();
+       
     }
 }
