@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour {
 
@@ -44,6 +46,20 @@ public class GameManager : MonoBehaviour {
 
 	public bool isStartOfGame = true;
 
+    public bool isFirstMovePlayer = true;
+
+    public bool isPlayerSecondTurn;
+
+    public Button icvSpawnButton;
+    public Button ltSpawnButton;
+    public Button fourfourSpawnButton;
+    public Button threefourSpawnButton;
+    public Button twofourSpawnButton;
+    public Button waterbomberSpawnButton;
+    public Button helitackSpawnButton;
+    public Button dozerSpawnButton;
+
+
     void Awake()
     {
         mycelllist = new List<CellBehaviour>();
@@ -51,12 +67,14 @@ public class GameManager : MonoBehaviour {
         Init(50,50 );
        
 		isStartOfGame = true;
-        
 
+        isFirstMovePlayer = true;
         //Run();
 
-        SetOnFire();
+        
+
        
+
     }
 
 
@@ -248,7 +266,57 @@ public class GameManager : MonoBehaviour {
 				TBStates = TurnBasedStates.PlayersTurn;
 			} else if (TBStates == TurnBasedStates.PlayersTurn)
 			{
-				
+				if (isFirstMovePlayer == true)
+            {
+                icvSpawnButton.interactable = true;
+                ltSpawnButton.interactable = false;
+                fourfourSpawnButton.interactable = false;
+                threefourSpawnButton.interactable = false;
+                twofourSpawnButton.interactable = false;
+                waterbomberSpawnButton.interactable = false;
+                helitackSpawnButton.interactable = false;
+                dozerSpawnButton.interactable = false;
+
+                isFirstMovePlayer = false;
+                isPlayerSecondTurn = true;
+
+            }
+            if (GameObject.Find("ICV(Clone)") != null)
+            {
+                icvSpawnButton.interactable = false;
+                ltSpawnButton.interactable = false;
+                fourfourSpawnButton.interactable = false;
+                threefourSpawnButton.interactable = false;
+                twofourSpawnButton.interactable = false;
+                waterbomberSpawnButton.interactable = false;
+                helitackSpawnButton.interactable = false;
+                dozerSpawnButton.interactable = true;
+
+                isPlayerSecondTurn = false;
+            }
+             if(isPlayerSecondTurn == false)
+            {
+                icvSpawnButton.interactable = false;
+                ltSpawnButton.interactable = true;
+                fourfourSpawnButton.interactable = true;
+                threefourSpawnButton.interactable = true;
+                twofourSpawnButton.interactable = true;
+                waterbomberSpawnButton.interactable = true;
+                helitackSpawnButton.interactable = true;
+                dozerSpawnButton.interactable = true;
+            }
+            if (GameObject.Find("D10spawn(Clone)") !=null)
+            {
+         
+                icvSpawnButton.interactable = false;
+                ltSpawnButton.interactable = true;
+                fourfourSpawnButton.interactable = true;
+                threefourSpawnButton.interactable = true;
+                twofourSpawnButton.interactable = true;
+                waterbomberSpawnButton.interactable = true;
+                helitackSpawnButton.interactable = true;
+                dozerSpawnButton.interactable = false;
+            }
 
 			}
 			
@@ -282,7 +350,7 @@ public class GameManager : MonoBehaviour {
         // Use this for initialization
         void Start ()
     {
-        
+       
 
 
 

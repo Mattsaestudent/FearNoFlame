@@ -20,6 +20,14 @@ public class ButtonControls : MonoBehaviour {
     public bool plane_stats;
     public bool earthMoving_stats;
 
+    public Button ltSpawnButton;
+    public Button fourfourSpawnButton;
+    public Button threefourSpawnButton;
+    public Button twofourSpawnButton;
+    public Button waterbomberSpawnButton;
+    public Button helitackSpawnButton;
+    public Button dozerSpawnButton;
+
     void Awake()
     {
         LT_panel.gameObject.SetActive(false);
