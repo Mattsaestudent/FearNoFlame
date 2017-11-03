@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1053617369666906}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,6 +77,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e7eb729349578499b2eeb3702bfd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cb: {fileID: 0}
+  selectedCell: 0
+  cellstoMove: []
+  first: {fileID: 0}
+  secondselect: {fileID: 0}
+  nextPoint: {x: 0, y: 0, z: 0}
+  theendpoint: {x: 0, y: 0, z: 0}
+  startPoint: {x: 0, y: 0, z: 0}
+  titles: []
 --- !u!212 &212053625782190204
 SpriteRenderer:
   m_ObjectHideFlags: 1

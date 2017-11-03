@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
 		FireSpread,PlayersTurn,PlayerWin,PlayerLose
 	}
 
-
+    public int waterTotal;
     public int CellNumber;
     public CellBehaviour cellPrefab; //Cell prefab
 
@@ -59,9 +59,15 @@ public class GameManager : MonoBehaviour {
     public Button helitackSpawnButton;
     public Button dozerSpawnButton;
 
+    public Slider waterBar;
+
+    public Text waterDisplay;
+
 
     void Awake()
     {
+       
+
         mycelllist = new List<CellBehaviour>();
 
         Init(50,50 );
@@ -318,7 +324,36 @@ public class GameManager : MonoBehaviour {
                 dozerSpawnButton.interactable = false;
             }
 
-			}
+            if(waterTotal<999)
+            {
+                helitackSpawnButton.interactable = false;
+            }
+            if (waterTotal < 949)
+            {
+                waterbomberSpawnButton.interactable = false; 
+            }
+            if (waterTotal < 349)
+            {
+                twofourSpawnButton.interactable = false;
+            }
+            if (waterTotal < 449)
+            {
+                threefourSpawnButton.interactable = false;
+            }
+            if (waterTotal < 549)
+            {
+                fourfourSpawnButton.interactable = false;
+            }
+            if (waterTotal < 150)
+            {
+                ltSpawnButton.interactable = false;
+            }
+            if(waterTotal < 250)
+            {
+                dozerSpawnButton.interactable = false;
+            }
+
+        }
 			
 
 
@@ -350,9 +385,9 @@ public class GameManager : MonoBehaviour {
         // Use this for initialization
         void Start ()
     {
-       
 
-
+        waterDisplay = GameObject.FindGameObjectWithTag("waterText").GetComponent<Text>();
+        waterBar = GameObject.FindGameObjectWithTag("water").GetComponent<Slider>();
 
     }
 	
@@ -360,6 +395,10 @@ public class GameManager : MonoBehaviour {
 	void Update ()
     {
 		WhoTurnIsIT ();
+
+        waterBar.value = waterTotal;
+
+        waterDisplay.text = "1000 / " + waterTotal;
        
     }
 }

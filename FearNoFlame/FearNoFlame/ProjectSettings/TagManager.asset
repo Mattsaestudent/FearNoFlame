@@ -7,6 +7,8 @@ TagManager:
   - terrain
   - Game Manager
   - x
+  - water
+  - waterText
   layers:
   - Default
   - TransparentFX
