@@ -63,48 +63,67 @@ public class BuildingSystems : MonoBehaviour
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
+
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out hit))
+                if (selectedObject != null)
                 {
-                    if (hit.transform.tag == "terrain")
-                    {
-                        Instantiate(selectedObject, new Vector3(hit.point.x, 0.51f, hit.point.z), Quaternion.Euler(90, 0, 0));
 
-                      if (selectedObject == selectGameObject[0])
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (hit.transform.tag == "terrain")
                         {
-                            Gm.waterTotal -= 250;
-                        }else if(selectedObject == selectGameObject[1])
-                        {
-                            Gm.waterTotal -= 250;
+                            if (Gm.waterTotal < 149)
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                Instantiate(selectedObject, new Vector3(hit.point.x, 0.51f, hit.point.z), Quaternion.Euler(90, 0, 0));
+                            }
+
+                            if (selectedObject == selectGameObject[0])
+                            {
+                                Gm.waterTotal -= 250;
+                            }
+                            else if (selectedObject == selectGameObject[1])
+                            {
+                                Gm.waterTotal -= 250;
+                            }
+                            else if (selectedObject == selectGameObject[2])
+                            {
+                                Gm.waterTotal -= 150;
+                            }
+                            else if (selectedObject == selectGameObject[3])
+                            {
+                                Gm.waterTotal -= 550;
+                            }
+                            else if (selectedObject == selectGameObject[4])
+                            {
+                                Gm.waterTotal -= 450;
+                            }
+                            else if (selectedObject == selectGameObject[5])
+                            {
+                                Gm.waterTotal -= 350;
+                            }
+                            else if (selectedObject == selectGameObject[6])
+                            {
+                                Gm.waterTotal -= 950;
+                            }
+                            else if (selectedObject == selectGameObject[7])
+                            {
+                                Gm.waterTotal -= 1000;
+                            }
+
+
                         }
-                        else if(selectedObject == selectGameObject[2])
+                        else
                         {
-                            Gm.waterTotal -= 150;
+                            return;
                         }
-                        else if (selectedObject == selectGameObject[3])
-                        {
-                            Gm.waterTotal -= 550;
-                        }
-                        else if (selectedObject == selectGameObject[4])
-                        {
-                            Gm.waterTotal -= 450;
-                        }
-                        else if (selectedObject == selectGameObject[5])
-                        {
-                            Gm.waterTotal -= 350;
-                        }
-                        else if (selectedObject == selectGameObject[6])
-                        {
-                            Gm.waterTotal -= 950;
-                        }
-                        else if (selectedObject == selectGameObject[7])
-                        {
-                            Gm.waterTotal -= 1000;
-                        }
+
                     }
                 }
 

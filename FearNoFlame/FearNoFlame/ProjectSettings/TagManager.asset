@@ -9,6 +9,8 @@ TagManager:
   - x
   - water
   - waterText
+  - EndMovementRound
+  - EndAction
   layers:
   - Default
   - TransparentFX

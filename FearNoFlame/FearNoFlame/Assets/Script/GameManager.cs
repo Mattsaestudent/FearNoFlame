@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class GameManager : MonoBehaviour {
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour {
 
 	public enum TurnBasedStates
 	{
-		FireSpread,PlayersTurn,PlayerWin,PlayerLose
+		FireSpread,PlayersTurn,PlayerMove,PlayerAction,PlayerWin,PlayerLose
 	}
 
     public int waterTotal;
@@ -63,6 +64,14 @@ public class GameManager : MonoBehaviour {
 
     public Text waterDisplay;
 
+    public GameObject ActionMovement;
+
+    public GameObject actionAction;
+
+    public Button EndMovmentTurn;
+
+    public BuildingSystems BSs;
+
 
     void Awake()
     {
@@ -77,9 +86,14 @@ public class GameManager : MonoBehaviour {
         isFirstMovePlayer = true;
         //Run();
 
-        
+        ActionMovement.GetComponent<GameObject>();
+        actionAction.GetComponent<GameObject>();
+        EndMovmentTurn.GetComponent<Button>();
 
-       
+        BSs.GetComponent<BuildingSystems>();
+
+
+
 
     }
 
@@ -272,7 +286,8 @@ public class GameManager : MonoBehaviour {
 				TBStates = TurnBasedStates.PlayersTurn;
 			} else if (TBStates == TurnBasedStates.PlayersTurn)
 			{
-				if (isFirstMovePlayer == true)
+
+                if (isFirstMovePlayer == true)
             {
                 icvSpawnButton.interactable = true;
                 ltSpawnButton.interactable = false;
@@ -310,6 +325,7 @@ public class GameManager : MonoBehaviour {
                 waterbomberSpawnButton.interactable = true;
                 helitackSpawnButton.interactable = true;
                 dozerSpawnButton.interactable = true;
+
             }
             if (GameObject.Find("D10spawn(Clone)") !=null)
             {
@@ -322,9 +338,12 @@ public class GameManager : MonoBehaviour {
                 waterbomberSpawnButton.interactable = true;
                 helitackSpawnButton.interactable = true;
                 dozerSpawnButton.interactable = false;
+                waterTotal += 350;
             }
 
-            if(waterTotal<999)
+           
+
+            if (waterTotal<999)
             {
                 helitackSpawnButton.interactable = false;
             }
@@ -352,6 +371,23 @@ public class GameManager : MonoBehaviour {
             {
                 dozerSpawnButton.interactable = false;
             }
+            
+        }else if(TBStates == TurnBasedStates.PlayerMove)
+        {
+            icvSpawnButton.interactable = false;
+            ltSpawnButton.interactable = false;
+            fourfourSpawnButton.interactable = false;
+            threefourSpawnButton.interactable = false;
+            twofourSpawnButton.interactable = false;
+            waterbomberSpawnButton.interactable = false;
+            helitackSpawnButton.interactable = false;
+            dozerSpawnButton.interactable = false;
+
+            if(BSs.selectedObject != null)
+            {
+                BSs.selectedObject = null;
+            }
+
 
         }
 			
@@ -363,6 +399,15 @@ public class GameManager : MonoBehaviour {
 
 
 	}
+
+    void NextActionMovement()
+    {
+        TBStates = TurnBasedStates.PlayerMove;
+
+        ActionMovement.SetActive(false);
+        actionAction.SetActive(true);
+
+    }
 
 
 
@@ -389,6 +434,11 @@ public class GameManager : MonoBehaviour {
         waterDisplay = GameObject.FindGameObjectWithTag("waterText").GetComponent<Text>();
         waterBar = GameObject.FindGameObjectWithTag("water").GetComponent<Slider>();
 
+        actionAction.SetActive(false);
+        ActionMovement.SetActive(true);
+
+        EndMovmentTurn.onClick.AddListener(NextActionMovement);
+
     }
 	
 	// Update is called once per frame
@@ -399,6 +449,11 @@ public class GameManager : MonoBehaviour {
         waterBar.value = waterTotal;
 
         waterDisplay.text = "1000 / " + waterTotal;
+
+        if(waterTotal < 0)
+        {
+            waterTotal = 0;
+        }
        
     }
 }
