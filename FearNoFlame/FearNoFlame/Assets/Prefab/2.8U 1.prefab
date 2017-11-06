@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65483753739679094}
   - component: {fileID: 114836107311070926}
   - component: {fileID: 114048108862889710}
+  - component: {fileID: 65914178373635418}
   m_Layer: 0
   m_Name: 2.8U 1
   m_TagString: Untagged
@@ -53,8 +54,20 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.52, y: 0.92, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.52, y: 0.9, z: 0.94}
+  m_Center: {x: 0, y: 0.53, z: 0.43}
+--- !u!65 &65914178373635418
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053617369666906}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.52, y: 0.82, z: 0.94}
+  m_Center: {x: 0, y: -0.34, z: 0.43}
 --- !u!114 &114048108862889710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -77,15 +90,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e7eb729349578499b2eeb3702bfd63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cb: {fileID: 0}
-  selectedCell: 0
-  cellstoMove: []
-  first: {fileID: 0}
-  secondselect: {fileID: 0}
-  nextPoint: {x: 0, y: 0, z: 0}
-  theendpoint: {x: 0, y: 0, z: 0}
-  startPoint: {x: 0, y: 0, z: 0}
-  titles: []
+  Uss: {fileID: 0}
+  selectedGameObjectlol: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!212 &212053625782190204
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4078574725912764}
   - component: {fileID: 212075946097446334}
+  - component: {fileID: 65300664692777912}
+  - component: {fileID: 65363466405986994}
   m_Layer: 0
   m_Name: 4.4Uspawn
   m_TagString: Untagged
@@ -34,12 +36,36 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1971338248307914}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &65300664692777912
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971338248307914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.14, y: 1.31, z: 1.05}
+  m_Center: {x: 0, y: 0.7, z: 0.45}
+--- !u!65 &65363466405986994
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1971338248307914}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.14, y: 1.31, z: 1.05}
+  m_Center: {x: 0, y: -0.61, z: 0.45}
 --- !u!212 &212075946097446334
 SpriteRenderer:
   m_ObjectHideFlags: 1
