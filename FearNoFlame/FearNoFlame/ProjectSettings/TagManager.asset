@@ -11,6 +11,7 @@ TagManager:
   - waterText
   - EndMovementRound
   - EndAction
+  - ICV
   layers:
   - Default
   - TransparentFX

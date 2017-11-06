@@ -147,6 +147,7 @@ public class BuildingSystems : MonoBehaviour
     void ICVspawn()
     {
         selectedObject = selectGameObject[1];
+
         
     }
 

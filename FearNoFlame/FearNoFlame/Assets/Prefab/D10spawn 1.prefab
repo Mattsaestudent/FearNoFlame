@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4345236120561654}
   - component: {fileID: 212864410030183862}
   - component: {fileID: 65260185079745802}
+  - component: {fileID: 114087749131593886}
+  - component: {fileID: 54116019203126522}
   m_Layer: 0
   m_Name: D10spawn 1
   m_TagString: Untagged
@@ -41,6 +43,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!54 &54116019203126522
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422120783202580}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65260185079745802
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -48,11 +65,23 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1422120783202580}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.46, y: 0.96, z: -0.46}
+  m_Size: {x: 2.46, y: 0.96, z: 0.56}
   m_Center: {x: 0, y: 0.1, z: 0.21}
+--- !u!114 &114087749131593886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422120783202580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee678c7d102e70542a13ce6a0ae00d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounds: []
 --- !u!212 &212864410030183862
 SpriteRenderer:
   m_ObjectHideFlags: 1

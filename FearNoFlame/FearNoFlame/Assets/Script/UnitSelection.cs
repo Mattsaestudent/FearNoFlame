@@ -25,10 +25,12 @@ public class UnitSelection : MonoBehaviour {
         {
             if (hitInfo.transform.tag != "terrain")
             {
+				if (hitInfo.transform.tag != "ICV") {
 
-                GameObject hitObject = hitInfo.transform.root.gameObject;
+					GameObject hitObject = hitInfo.transform.root.gameObject;
 
-                SelectObject(hitObject);
+					SelectObject (hitObject);
+				}
             }
             else
             {
