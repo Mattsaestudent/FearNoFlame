@@ -64,9 +64,9 @@ public class GameManager : MonoBehaviour {
 
     public Text waterDisplay;
 
-    public GameObject ActionMovement;
+    public GameObject EndApplianceCallOut;
 
-    public GameObject actionAction;
+    public GameObject EndMovementRound;
 
     public Button EndMovmentTurn;
 
@@ -86,8 +86,8 @@ public class GameManager : MonoBehaviour {
         isFirstMovePlayer = true;
         //Run();
 
-        ActionMovement.GetComponent<GameObject>();
-        actionAction.GetComponent<GameObject>();
+        EndApplianceCallOut.GetComponent<GameObject>();
+        EndMovementRound.GetComponent<GameObject>();
         EndMovmentTurn.GetComponent<Button>();
 
         BSs.GetComponent<BuildingSystems>();
@@ -400,16 +400,25 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-    void NextActionMovement()
+    void NextEndBuildTurn()
     {
         TBStates = TurnBasedStates.PlayerMove;
 
-        ActionMovement.SetActive(false);
-        actionAction.SetActive(true);
+        EndApplianceCallOut.SetActive(false);
+        EndMovementRound.SetActive(true);
 
     }
 
+    void NextMovementTurn()
+    {
+        TBStates = TurnBasedStates.PlayerAction;
+    }
 
+
+    void NextActionTurn()
+    {
+        TBStates = TurnBasedStates.FireSpread;
+    }
 
 
 
@@ -434,10 +443,10 @@ public class GameManager : MonoBehaviour {
         waterDisplay = GameObject.FindGameObjectWithTag("waterText").GetComponent<Text>();
         waterBar = GameObject.FindGameObjectWithTag("water").GetComponent<Slider>();
 
-        actionAction.SetActive(false);
-        ActionMovement.SetActive(true);
+        EndMovementRound.SetActive(false);
+        EndApplianceCallOut.SetActive(true);
 
-        EndMovmentTurn.onClick.AddListener(NextActionMovement);
+        EndMovmentTurn.onClick.AddListener(NextEndBuildTurn);
 
     }
 	
