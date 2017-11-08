@@ -68,9 +68,29 @@ public class GameManager : MonoBehaviour {
 
     public GameObject EndMovementRound;
 
-    public Button EndMovmentTurn;
+    public GameObject EndActionRound;
+
+    public Button endApplianceCallOut;
+    public Button endMovementRound;
+    public Button endActionRound;
 
     public BuildingSystems BSs;
+
+
+    public GameObject prefabtwofour;
+    public GameObject prefabthreefour;
+    public GameObject prefabfourfour;
+    public GameObject prefabHelitack;
+    public GameObject prefabwaterbomer;
+    public GameObject prefablt;
+
+    public bool isLowIntFire;
+    public bool isMiddleIntFire;
+    public bool isHighIntFire;
+
+
+
+    public GameObject ICVstat;
 
 
     void Awake()
@@ -88,11 +108,12 @@ public class GameManager : MonoBehaviour {
 
         EndApplianceCallOut.GetComponent<GameObject>();
         EndMovementRound.GetComponent<GameObject>();
-        EndMovmentTurn.GetComponent<Button>();
+        EndActionRound.GetComponent<GameObject>();
+        endApplianceCallOut.GetComponent<Button>();
+        endMovementRound.GetComponent<Button>();
+        endActionRound.GetComponent<Button>();
 
         BSs.GetComponent<BuildingSystems>();
-
-
 
 
     }
@@ -278,16 +299,22 @@ public class GameManager : MonoBehaviour {
 			{
 				SetOnFire();
 				isStartOfGame = false;
+
 			}
 			CallNextUpdate ();
 			CallNextUpdate ();
 			CallNextUpdate ();
 			CallNextUpdate ();
-				TBStates = TurnBasedStates.PlayersTurn;
+            waterTotal += 350;
+
+            AreTheySellsstillalite();
+
+            TBStates = TurnBasedStates.PlayersTurn;
+
 			} else if (TBStates == TurnBasedStates.PlayersTurn)
 			{
-
-                if (isFirstMovePlayer == true)
+        
+            if (isFirstMovePlayer == true)
             {
                 icvSpawnButton.interactable = true;
                 ltSpawnButton.interactable = false;
@@ -338,7 +365,8 @@ public class GameManager : MonoBehaviour {
                 waterbomberSpawnButton.interactable = true;
                 helitackSpawnButton.interactable = true;
                 dozerSpawnButton.interactable = false;
-                waterTotal += 350;
+                EndMovementRound.SetActive(false);
+                
             }
 
            
@@ -366,6 +394,7 @@ public class GameManager : MonoBehaviour {
             if (waterTotal < 150)
             {
                 ltSpawnButton.interactable = false;
+               
             }
             if(waterTotal < 250)
             {
@@ -389,6 +418,60 @@ public class GameManager : MonoBehaviour {
             }
 
 
+        }else if(TBStates == TurnBasedStates.PlayerAction)
+        {
+           
+
+            if (prefablt.GetComponent<PutfireoutLT>().fireinrang == true)
+            {
+                prefablt.GetComponent<PutfireoutLT>();
+            }else
+            {
+                return;
+            }
+
+            if(prefabtwofour.GetComponent<PutoutFire24>().fireinrang == true)
+            {
+                prefabtwofour.GetComponent<PutoutFire24>();
+            }
+            else
+            {
+                return;
+            }
+
+            if(prefabthreefour.GetComponent<PutOutFire34>().fireinrang == true)
+            {
+                prefabthreefour.GetComponent<PutOutFire34>();
+            }
+            else { return; }
+
+
+            if (prefabfourfour.GetComponent<UfourfourPutoutfire>().fireinrang == true)
+            {
+                prefabfourfour.GetComponent<UfourfourPutoutfire>();
+            }
+            else { return; }
+
+            if(prefabHelitack.GetComponent<PutOutFireHelitack>().fireinrang == true)
+            {
+                prefabHelitack.GetComponent<PutOutFireHelitack>();
+            }
+            else { return; }
+
+            if(prefabwaterbomer.GetComponent<PlanePutoutfire>().fireinrang== true)
+            {
+                prefabwaterbomer.GetComponent<PlanePutoutfire>();
+            }
+            else { return; }
+
+
+
+        }else if(TBStates == TurnBasedStates.PlayerWin)
+        {
+
+        }else if(TBStates == TurnBasedStates.PlayerLose)
+        {
+
         }
 			
 
@@ -406,24 +489,58 @@ public class GameManager : MonoBehaviour {
 
         EndApplianceCallOut.SetActive(false);
         EndMovementRound.SetActive(true);
+        EndActionRound.SetActive(false);
+    
 
     }
 
     void NextMovementTurn()
     {
         TBStates = TurnBasedStates.PlayerAction;
+        EndActionRound.SetActive(false);
+        EndApplianceCallOut.SetActive(false);
+        EndActionRound.SetActive(true);
+        EndMovementRound.SetActive(false);
     }
 
 
     void NextActionTurn()
     {
         TBStates = TurnBasedStates.FireSpread;
+        EndActionRound.SetActive(false);
+        EndApplianceCallOut.SetActive(true);
+        EndActionRound.SetActive(false);
     }
 
 
 
 
+    void AreTheySellsstillalite()
+    {
+        isLowIntFire = false;
+        isMiddleIntFire = false;
+        isHighIntFire = false;
 
+        for (int i = 0; i < mycelllist.Count; i++)
+        {
+            if (mycelllist[i].GetComponent<CellBehaviour>().IsonFire == true && mycelllist[i].GetComponent<CellBehaviour>().currentState == CellBehaviour.StatesOfCell.LowIntFire)
+            {
+                isLowIntFire = true;
+            }
+
+            if (mycelllist[i].GetComponent<CellBehaviour>().IsonFire == true && mycelllist[i].GetComponent<CellBehaviour>().currentState == CellBehaviour.StatesOfCell.MiddleIntFire)
+            {
+                isMiddleIntFire = true;
+            }
+
+            if (mycelllist[i].GetComponent<CellBehaviour>().IsonFire == true && mycelllist[i].GetComponent<CellBehaviour>().currentState == CellBehaviour.StatesOfCell.HighIntFire)
+            {
+                isHighIntFire = true;
+            }
+            
+        }
+
+    }
 
 
 
@@ -433,6 +550,7 @@ public class GameManager : MonoBehaviour {
 	void CallNextUpdate()
     {
         UpdateCells();
+   
     }
 
   
@@ -446,7 +564,14 @@ public class GameManager : MonoBehaviour {
         EndMovementRound.SetActive(false);
         EndApplianceCallOut.SetActive(true);
 
-        EndMovmentTurn.onClick.AddListener(NextEndBuildTurn);
+        endApplianceCallOut.onClick.AddListener(NextEndBuildTurn);
+        endMovementRound.onClick.AddListener(NextMovementTurn);
+        endActionRound.onClick.AddListener(NextActionTurn);
+
+
+        
+
+        
 
     }
 	
@@ -463,6 +588,21 @@ public class GameManager : MonoBehaviour {
         {
             waterTotal = 0;
         }
+
        
+        if (isLowIntFire == false && isMiddleIntFire == false && isHighIntFire == false && ICVstat.GetComponent<GameOverScript>().isGameEnded == false)
+        {
+            TBStates = TurnBasedStates.PlayerWin;
+        }
+
+        if (ICVstat.GetComponent<GameOverScript>().isGameEnded == true)
+        {
+            TBStates = TurnBasedStates.PlayerLose;
+        }
+            
+        
     }
+
+
+
 }

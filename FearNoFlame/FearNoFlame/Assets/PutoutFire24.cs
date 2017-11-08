@@ -8,6 +8,8 @@ public class PutoutFire24 : MonoBehaviour {
 
     public List<GameObject> listofcells;
 
+    public bool fireinrang;
+
     // Use this for initialization
     void Start () {
         grounds = new List<GameObject>();
@@ -16,9 +18,24 @@ public class PutoutFire24 : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        CheckforFire();
+        if (listofcells != null)
+        {
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
+            {
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
+            }
+        }
+        else
+        {
+            fireinrang = false;
+            return;
+        }
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -44,9 +61,6 @@ public class PutoutFire24 : MonoBehaviour {
             }
         }
 
-        for (int i = 0; i < 1; i++)
-        {
-            listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-        }
+        
     }
 }

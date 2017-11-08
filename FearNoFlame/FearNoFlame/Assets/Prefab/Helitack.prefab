@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4902118749576908}
   - component: {fileID: 212029203524048296}
   - component: {fileID: 65501136916828890}
+  - component: {fileID: 114231557128839774}
   m_Layer: 0
   m_Name: Helitack
   m_TagString: Untagged
@@ -53,6 +54,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.89, y: 2.26, z: 3.09}
   m_Center: {x: -0.08, y: 0.09, z: 1.36}
+--- !u!114 &114231557128839774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1931374054998668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 966241f1175069b4cb011e7e03963c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grounds: []
+  listofcells: []
+  fireinrang: 0
 --- !u!212 &212029203524048296
 SpriteRenderer:
   m_ObjectHideFlags: 1

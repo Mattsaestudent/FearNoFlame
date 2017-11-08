@@ -40,6 +40,8 @@ public class CellBehaviour : MonoBehaviour {
 
     public int BurnOut;
 
+    public int CellsOnFire;
+
     
 
     void Awake()
@@ -66,7 +68,7 @@ public class CellBehaviour : MonoBehaviour {
     public void CellsUpdate()
     {
         nextState = currentState;
-        int OnFireCells = GetCellOnFire();
+        int CellsOnFire = GetCellOnFire();
 
        
             if (this.IsonFire == true && FireDangerIndex >= 12 && FireDangerIndex <= 24)
@@ -277,6 +279,16 @@ public class CellBehaviour : MonoBehaviour {
         yield return new WaitForSeconds(5);
         currentState = StatesOfCell.BurntGround;
 
+    }
+
+    void Update()
+    {
+        if(currentState == StatesOfCell.BurntGround)
+        {
+            IsonFire = false;
+        }
+
+        GetCellOnFire();
     }
 
 }

@@ -8,6 +8,8 @@ public class UfourfourPutoutfire : MonoBehaviour {
 
     public List<GameObject> listofcells;
 
+    public bool fireinrang;
+
     // Use this for initialization
     void Start ()
     {
@@ -18,7 +20,22 @@ public class UfourfourPutoutfire : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         CheckforFire();
+
+        if (listofcells != null)
+        {
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
+            {
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
+            }
+        }
+        else
+        {
+            fireinrang = false;
+            return;
+        }
 
     }
 
@@ -46,9 +63,6 @@ public class UfourfourPutoutfire : MonoBehaviour {
             }
         }
 
-        for(int i =0; i < 3; i++)
-        {
-            listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-        }
+       
     }
 }
