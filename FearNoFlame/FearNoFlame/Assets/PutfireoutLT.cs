@@ -36,6 +36,7 @@ public class PutfireoutLT : MonoBehaviour {
            
             if (other.gameObject.GetComponent<CellBehaviour>().IsonFire == true)
             {
+                if(!grounds.Contains(other.gameObject))
                 grounds.Add(other.gameObject);
             }
         }
@@ -54,16 +55,9 @@ public class PutfireoutLT : MonoBehaviour {
         
      public void GetActive()
     {
-        for(int i =0; i < grounds.Count; i++)
-        {
-            if (grounds != null)
-            {
-                getActiveCells.Add(grounds[i]);
-            }
-            else { Debug.Log("Grounds is null WTF"); }
-        }
-        
-        
+
+        grounds[0].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[1].GetComponent<CellBehaviour>().IsonFire = false;
     }
        
         

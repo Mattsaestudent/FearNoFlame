@@ -9,22 +9,32 @@ public class GameOverScript : MonoBehaviour
 
     public bool isGameEnded;
 
+    public bool GameHasFinished;
+
+    public GameObject icv;
+
     void Awake()
     {
         grounds = new List<GameObject>();
-        isGameEnded = false;
+        
+      //  isGameEnded = false;
     }
 
     // Use this for initialization
     void Start()
     {
-        
+        icv = GetComponent<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckFire();
+
+        if(isGameEnded == true)
+        {
+            GameHasFinished = true;
+        }
       
     }
 
@@ -40,10 +50,13 @@ public class GameOverScript : MonoBehaviour
     {
         for(int i = 0; i < grounds.Count; i++)
         {
-           if(grounds[i].GetComponent<CellBehaviour>().IsonFire == true)
+            if (grounds[i].GetComponent<CellBehaviour>().IsonFire == true)
             {
-                
-                isGameEnded = true;
+                if (gameObject.name == "ICV(Clone)")
+                {
+                    Destroy(gameObject,2);
+                }
+
             }
         }
     }

@@ -97,6 +97,9 @@ public class GameManager : MonoBehaviour {
     public GameObject win;
     public GameObject lose;
 
+    public GameOverScript gameoverscript;
+
+    
 
     void Awake()
     {
@@ -478,6 +481,10 @@ public class GameManager : MonoBehaviour {
         EndApplianceCallOut.SetActive(false);
         EndActionRound.SetActive(true);
         EndMovementRound.SetActive(false);
+        if (GameObject.Find("ICV(Clone)") == null)
+        {
+            TBStates = TurnBasedStates.PlayerLose;
+        }
     }
 
 
@@ -539,6 +546,8 @@ public class GameManager : MonoBehaviour {
         waterDisplay = GameObject.FindGameObjectWithTag("waterText").GetComponent<Text>();
         waterBar = GameObject.FindGameObjectWithTag("water").GetComponent<Slider>();
 
+       
+
         EndMovementRound.SetActive(false);
         EndApplianceCallOut.SetActive(true);
 
@@ -553,33 +562,33 @@ public class GameManager : MonoBehaviour {
         
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-		WhoTurnIsIT ();
+        WhoTurnIsIT();
 
         waterBar.value = waterTotal;
 
         waterDisplay.text = "1000 / " + waterTotal;
 
-        if(waterTotal < 0)
+        if (waterTotal < 0)
         {
             waterTotal = 0;
         }
 
-       
-        if (isLowIntFire == false && isMiddleIntFire == false && isHighIntFire == false && ICVstat.GetComponent<GameOverScript>().isGameEnded == false)
+
+        if (isLowIntFire == false && isMiddleIntFire == false && isHighIntFire == false && GameObject.Find("ICV(Clone)") != null)
         {
             TBStates = TurnBasedStates.PlayerWin;
         }
 
-        if (ICVstat.GetComponent<GameOverScript>().isGameEnded == true)
-        {
-            TBStates = TurnBasedStates.PlayerLose;
-        }
 
-        Debug.Log(ICVstat.GetComponent<GameOverScript>().isGameEnded);
+       
+            
+       
+        Debug.Log(GameObject.Find("ICV(Clone)"));
+
     }
 
 
