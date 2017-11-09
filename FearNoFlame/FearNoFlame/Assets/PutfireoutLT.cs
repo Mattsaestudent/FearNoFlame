@@ -56,8 +56,7 @@ public class PutfireoutLT : MonoBehaviour {
      public void GetActive()
     {
 
-        grounds[0].GetComponent<CellBehaviour>().IsonFire = false;
-        grounds[1].GetComponent<CellBehaviour>().IsonFire = false;
+        
     }
        
         
