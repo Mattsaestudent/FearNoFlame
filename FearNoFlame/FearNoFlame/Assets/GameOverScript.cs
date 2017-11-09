@@ -12,18 +12,20 @@ public class GameOverScript : MonoBehaviour
     void Awake()
     {
         grounds = new List<GameObject>();
+        isGameEnded = false;
     }
 
     // Use this for initialization
     void Start()
     {
-        isGameEnded = false;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         CheckFire();
+      
     }
 
     void OnTriggerEnter(Collider other)

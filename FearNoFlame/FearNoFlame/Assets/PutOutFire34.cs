@@ -21,22 +21,10 @@ public class PutOutFire34 : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        CheckforFire();
+      
 
 
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+     
     }
 
     void OnTriggerEnter(Collider other)
@@ -63,8 +51,20 @@ public class PutOutFire34 : MonoBehaviour {
                 listofcells.Add(grounds[i]);
             }
         }
+        if (listofcells != null)
+        {
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
+            {
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
+            }
+        }
+        else
+        {
+            fireinrang = false;
+            return;
+        }
 
-       
     }
 
 }

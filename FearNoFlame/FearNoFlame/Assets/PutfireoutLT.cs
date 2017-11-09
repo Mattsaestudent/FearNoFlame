@@ -6,43 +6,42 @@ public class PutfireoutLT : MonoBehaviour {
 
     public List<GameObject> grounds;
 
-    public List<GameObject> listofcells;
+    public List<GameObject> getActiveCells;
+
+   
 
     public bool fireinrang;
 
     // Use this for initialization
     void Start () {
+        grounds = new List<GameObject>();
+
+        getActiveCells = new List<GameObject>();
 
 
-		
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        CheckforFire();
 
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+        
+
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "terrain")
         {
-            grounds.Add(other.gameObject);
+           
+            if (other.gameObject.GetComponent<CellBehaviour>().IsonFire == true)
+            {
+                grounds.Add(other.gameObject);
+            }
         }
+        
+
+
 
     }
 
@@ -51,16 +50,25 @@ public class PutfireoutLT : MonoBehaviour {
         grounds.Remove(other.gameObject);
     }
 
-    void CheckforFire()
+   
+        
+     public void GetActive()
     {
-        for (int i = 0; i < grounds.Count; i++)
+        for(int i =0; i < grounds.Count; i++)
         {
-            if (grounds[i].GetComponent<CellBehaviour>().IsonFire == true)
+            if (grounds != null)
             {
-                listofcells.Add(grounds[i]);
+                getActiveCells.Add(grounds[i]);
             }
+            else { Debug.Log("Grounds is null WTF"); }
         }
-
-       
+        
+        
     }
+       
+        
+    
+
+
+
 }

@@ -21,21 +21,9 @@ public class UfourfourPutoutfire : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        CheckforFire();
+      
 
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+     
 
     }
 
@@ -63,6 +51,20 @@ public class UfourfourPutoutfire : MonoBehaviour {
             }
         }
 
-       
+        if (listofcells != null)
+        {
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
+            {
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
+            }
+        }
+        else
+        {
+            fireinrang = false;
+            return;
+        }
+
+
     }
 }

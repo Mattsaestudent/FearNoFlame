@@ -82,15 +82,20 @@ public class GameManager : MonoBehaviour {
     public GameObject prefabfourfour;
     public GameObject prefabHelitack;
     public GameObject prefabwaterbomer;
-    public GameObject prefablt;
+    public PutfireoutLT pFLT;
 
     public bool isLowIntFire;
     public bool isMiddleIntFire;
     public bool isHighIntFire;
 
+    public bool moneyplease;
+
 
 
     public GameObject ICVstat;
+
+    public GameObject win;
+    public GameObject lose;
 
 
     void Awake()
@@ -115,7 +120,10 @@ public class GameManager : MonoBehaviour {
 
         BSs.GetComponent<BuildingSystems>();
 
+      //  win = GameObject.FindGameObjectWithTag("Win"). GetComponent<GameObject>();
+     //   lose = GameObject.FindGameObjectWithTag("loss"). GetComponent<GameObject>();
 
+        
     }
 
 
@@ -305,7 +313,12 @@ public class GameManager : MonoBehaviour {
 			CallNextUpdate ();
 			CallNextUpdate ();
 			CallNextUpdate ();
-            waterTotal += 350;
+
+            if (moneyplease == true)
+            {
+                waterTotal += 350;
+            }
+    
 
             AreTheySellsstillalite();
 
@@ -341,6 +354,7 @@ public class GameManager : MonoBehaviour {
                 dozerSpawnButton.interactable = true;
 
                 isPlayerSecondTurn = false;
+      
             }
              if(isPlayerSecondTurn == false)
             {
@@ -352,7 +366,7 @@ public class GameManager : MonoBehaviour {
                 waterbomberSpawnButton.interactable = true;
                 helitackSpawnButton.interactable = true;
                 dozerSpawnButton.interactable = true;
-
+                
             }
             if (GameObject.Find("D10spawn(Clone)") !=null)
             {
@@ -420,58 +434,21 @@ public class GameManager : MonoBehaviour {
 
         }else if(TBStates == TurnBasedStates.PlayerAction)
         {
-           
-
-            if (prefablt.GetComponent<PutfireoutLT>().fireinrang == true)
-            {
-                prefablt.GetComponent<PutfireoutLT>();
-            }else
-            {
-                return;
-            }
-
-            if(prefabtwofour.GetComponent<PutoutFire24>().fireinrang == true)
-            {
-                prefabtwofour.GetComponent<PutoutFire24>();
-            }
-            else
-            {
-                return;
-            }
-
-            if(prefabthreefour.GetComponent<PutOutFire34>().fireinrang == true)
-            {
-                prefabthreefour.GetComponent<PutOutFire34>();
-            }
-            else { return; }
-
-
-            if (prefabfourfour.GetComponent<UfourfourPutoutfire>().fireinrang == true)
-            {
-                prefabfourfour.GetComponent<UfourfourPutoutfire>();
-            }
-            else { return; }
-
-            if(prefabHelitack.GetComponent<PutOutFireHelitack>().fireinrang == true)
-            {
-                prefabHelitack.GetComponent<PutOutFireHelitack>();
-            }
-            else { return; }
-
-            if(prefabwaterbomer.GetComponent<PlanePutoutfire>().fireinrang== true)
-            {
-                prefabwaterbomer.GetComponent<PlanePutoutfire>();
-            }
-            else { return; }
+            pFLT.GetActive();
 
 
 
-        }else if(TBStates == TurnBasedStates.PlayerWin)
+
+
+        }
+        else if(TBStates == TurnBasedStates.PlayerWin)
         {
-
-        }else if(TBStates == TurnBasedStates.PlayerLose)
+            win.SetActive(true);
+            
+        }
+        else if(TBStates == TurnBasedStates.PlayerLose)
         {
-
+            lose.SetActive(true);
         }
 			
 
@@ -510,6 +487,7 @@ public class GameManager : MonoBehaviour {
         EndActionRound.SetActive(false);
         EndApplianceCallOut.SetActive(true);
         EndActionRound.SetActive(false);
+        moneyplease = true;
     }
 
 
@@ -569,7 +547,8 @@ public class GameManager : MonoBehaviour {
         endActionRound.onClick.AddListener(NextActionTurn);
 
 
-        
+        win.SetActive(false);
+        lose.SetActive(false);
 
         
 
@@ -599,8 +578,8 @@ public class GameManager : MonoBehaviour {
         {
             TBStates = TurnBasedStates.PlayerLose;
         }
-            
-        
+
+        Debug.Log(ICVstat.GetComponent<GameOverScript>().isGameEnded);
     }
 
 

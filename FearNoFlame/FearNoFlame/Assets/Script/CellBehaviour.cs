@@ -18,6 +18,7 @@ public class CellBehaviour : MonoBehaviour {
     public Material TreeGreen;
     public Material bushMat;
     public Material grassMatt;
+    public Material dirtMat;
 
 
     [HideInInspector] public GameManager GM;
@@ -231,7 +232,7 @@ public class CellBehaviour : MonoBehaviour {
         {
             if (currentState == StatesOfCell.StillGreen)
             {
-                if (enviromentalMakeUp <= 25)
+                if (enviromentalMakeUp >=1 && enviromentalMakeUp <= 25)
                 {
                     meshRenderer.sharedMaterial = TreeGreen;
                 }
@@ -244,6 +245,11 @@ public class CellBehaviour : MonoBehaviour {
                 if (enviromentalMakeUp >= 61)
                 {
                     meshRenderer.sharedMaterial = bushMat;
+                }
+
+                if(enviromentalMakeUp == 0)
+                {
+                    meshRenderer.sharedMaterial = dirtMat;
                 }
             }
         }

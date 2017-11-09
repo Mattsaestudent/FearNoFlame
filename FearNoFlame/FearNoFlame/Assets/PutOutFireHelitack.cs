@@ -22,21 +22,9 @@ public class PutOutFireHelitack : MonoBehaviour {
     void Update()
     {
 
-        CheckforFire();
+        
 
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+      
     }
 
     void OnTriggerEnter(Collider other)
@@ -61,6 +49,20 @@ public class PutOutFireHelitack : MonoBehaviour {
             {
                 listofcells.Add(grounds[i]);
             }
+        }
+
+        if (listofcells != null)
+        {
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
+            {
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
+            }
+        }
+        else
+        {
+            fireinrang = false;
+            return;
         }
 
 

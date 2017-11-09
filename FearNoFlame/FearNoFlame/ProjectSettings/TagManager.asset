@@ -12,6 +12,8 @@ TagManager:
   - EndMovementRound
   - EndAction
   - ICV
+  - Win
+  - loss
   layers:
   - Default
   - TransparentFX

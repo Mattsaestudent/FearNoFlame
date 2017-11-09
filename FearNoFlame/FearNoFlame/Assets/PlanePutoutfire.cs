@@ -22,21 +22,9 @@ public class PlanePutoutfire : MonoBehaviour {
     void Update()
     {
 
-        CheckforFire();
+      
 
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+      
 
     }
 
@@ -62,6 +50,20 @@ public class PlanePutoutfire : MonoBehaviour {
             {
                 listofcells.Add(grounds[i]);
             }
+        }
+
+        if (listofcells != null)
+        {
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
+            {
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
+            }
+        }
+        else
+        {
+            fireinrang = false;
+            return;
         }
 
 

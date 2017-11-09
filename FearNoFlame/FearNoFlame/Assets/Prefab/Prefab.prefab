@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 65848727276728072}
   - component: {fileID: 23465566328474310}
   - component: {fileID: 114559445814199266}
+  - component: {fileID: 65214625604468928}
   m_Layer: 0
   m_Name: Prefab
   m_TagString: terrain
@@ -82,6 +83,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1018634346299204}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65214625604468928
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1018634346299204}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65848727276728072
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -113,6 +126,7 @@ MonoBehaviour:
   TreeGreen: {fileID: 2100000, guid: f22f39444b57a4a42ad5dfb03e885576, type: 2}
   bushMat: {fileID: 2100000, guid: b4e8fbb60a95d5c4ebb69823bc86557d, type: 2}
   grassMatt: {fileID: 2100000, guid: 4112524c1cde2a842955f366f1946375, type: 2}
+  dirtMat: {fileID: 2100000, guid: 9fb1e70bcde6a7341bbb730825f47617, type: 2}
   GM: {fileID: 0}
   x: 0
   y: 0
@@ -123,3 +137,4 @@ MonoBehaviour:
   FuelLoadsTones: 0
   enviromentalMakeUp: 0
   BurnOut: 0
+  CellsOnFire: 0

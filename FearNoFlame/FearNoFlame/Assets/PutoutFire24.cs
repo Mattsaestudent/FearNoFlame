@@ -20,20 +20,8 @@ public class PutoutFire24 : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        CheckforFire();
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+        
+       
 
     }
 
@@ -42,6 +30,7 @@ public class PutoutFire24 : MonoBehaviour {
         if (other.gameObject.tag == "terrain")
         {
             grounds.Add(other.gameObject);
+
         }
 
     }
@@ -53,14 +42,17 @@ public class PutoutFire24 : MonoBehaviour {
 
     void CheckforFire()
     {
-        for (int i = 0; i < grounds.Count; i++)
-        {
-            if (grounds[i].GetComponent<CellBehaviour>().IsonFire == true)
+            fireinrang = true;
+            for (int i = 0; i == 0; i++)
             {
-                listofcells.Add(grounds[i]);
+                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
             }
         }
-
+      
+    
+    
         
+
+
     }
-}
+

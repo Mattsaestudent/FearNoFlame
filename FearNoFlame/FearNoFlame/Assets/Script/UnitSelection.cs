@@ -8,6 +8,8 @@ public class UnitSelection : MonoBehaviour {
     public GameObject highlightedPlayer;
     public GameObject SelectedPlayer;
 
+    public Movement move;
+
     // Use this for initialization
     void Start()
     {
@@ -37,18 +39,19 @@ public class UnitSelection : MonoBehaviour {
                 ClearSelection();
                 return;
             }
+            if (Input.GetMouseButtonDown(0))
+            {
+                SelectedPlayer = highlightedPlayer;
+            }
+
+
         }
       
 
         if (Input.GetMouseButtonDown(1))
         {
-            SelectedPlayer = highlightedPlayer;
-
-           if(SelectedPlayer == highlightedPlayer)
-            {
-                SelectedPlayer.GetComponent<Renderer>().sharedMaterial.color = Color.blue;
-            }
-
+            SelectedPlayer = null;
+            highlightedPlayer = null;
 
         }
       

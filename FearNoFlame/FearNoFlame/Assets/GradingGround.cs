@@ -17,21 +17,22 @@ public class GradingGround : MonoBehaviour {
 	void Update () {
 		
 	}
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "terrain")
+        {
+            grounds.Add(other.gameObject);
+        }
+    }
 
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.tag == "terrain")
-		{
-			grounds.Add(other.gameObject);
-		}
-	}
 
-	void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.tag == "terrain") {
 			for (int i = 0; i < grounds.Count; i++) {
 				grounds [i].GetComponent<Renderer> ().material.color = Color.white;
 				grounds [i].GetComponent<CellBehaviour> ().FireDangerIndex = 0;
+                grounds[i].GetComponent<CellBehaviour>().enviromentalMakeUp = 0;
 			}
 		}
 
