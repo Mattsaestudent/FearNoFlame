@@ -29,8 +29,12 @@ public class PutoutFire24 : MonoBehaviour {
     {
         if (other.gameObject.tag == "terrain")
         {
-            grounds.Add(other.gameObject);
 
+            if (other.gameObject.GetComponent<CellBehaviour>().IsonFire == true)
+            {
+                if (!grounds.Contains(other.gameObject))
+                    grounds.Add(other.gameObject);
+            }
         }
 
     }
@@ -40,14 +44,13 @@ public class PutoutFire24 : MonoBehaviour {
         grounds.Remove(other.gameObject);
     }
 
-    void CheckforFire()
+    public void CheckforFire()
     {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
+        grounds[0].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[1].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[2].GetComponent<CellBehaviour>().IsonFire = false;
+
+    }
       
     
     

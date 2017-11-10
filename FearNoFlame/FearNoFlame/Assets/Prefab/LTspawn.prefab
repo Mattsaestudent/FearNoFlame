@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 65405077791068638}
   m_Layer: 0
   m_Name: LTspawn
-  m_TagString: Untagged
+  m_TagString: car
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grounds: []
-  listofcells: []
+  getActiveCells: []
   fireinrang: 1
 --- !u!212 &212329414255552308
 SpriteRenderer:

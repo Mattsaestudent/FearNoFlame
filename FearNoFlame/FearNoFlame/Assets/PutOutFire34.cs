@@ -31,9 +31,14 @@ public class PutOutFire34 : MonoBehaviour {
     {
         if (other.gameObject.tag == "terrain")
         {
-            grounds.Add(other.gameObject);
-        }
 
+            if (other.gameObject.GetComponent<CellBehaviour>().IsonFire == true)
+            {
+                if (!grounds.Contains(other.gameObject))
+                    grounds.Add(other.gameObject);
+            }
+
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -42,28 +47,12 @@ public class PutOutFire34 : MonoBehaviour {
     }
 
 
-    void CheckforFire()
+   public void CheckforFire()
     {
-        for (int i = 0; i < grounds.Count; i++)
-        {
-            if (grounds[i].GetComponent<CellBehaviour>().IsonFire == true)
-            {
-                listofcells.Add(grounds[i]);
-            }
-        }
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
+        grounds[0].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[1].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[2].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[3].GetComponent<CellBehaviour>().IsonFire = false;
 
     }
 

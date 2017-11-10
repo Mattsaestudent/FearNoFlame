@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UfourfourPutoutfire : MonoBehaviour {
+public class UfourfourPutoutfire : MonoBehaviour
+{
 
     public List<GameObject> grounds;
 
@@ -11,19 +12,20 @@ public class UfourfourPutoutfire : MonoBehaviour {
     public bool fireinrang;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         grounds = new List<GameObject>();
         listofcells = new List<GameObject>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
 
-      
+    // Update is called once per frame
+    void Update()
+    {
 
-     
+
+
+
 
     }
 
@@ -31,7 +33,12 @@ public class UfourfourPutoutfire : MonoBehaviour {
     {
         if (other.gameObject.tag == "terrain")
         {
-            grounds.Add(other.gameObject);
+
+            if (other.gameObject.GetComponent<CellBehaviour>().IsonFire == true)
+            {
+                if (!grounds.Contains(other.gameObject))
+                    grounds.Add(other.gameObject);
+            }
         }
 
     }
@@ -41,30 +48,12 @@ public class UfourfourPutoutfire : MonoBehaviour {
         grounds.Remove(other.gameObject);
     }
 
-    void CheckforFire()
+    public void CheckforFire()
     {
-        for(int i = 0; i< grounds.Count; i++)
-        {
-            if(grounds[i].GetComponent<CellBehaviour>().IsonFire == true)
-            {
-                listofcells.Add(grounds[i]);
-            }
-        }
-
-        if (listofcells != null)
-        {
-            fireinrang = true;
-            for (int i = 0; i == 0; i++)
-            {
-                listofcells[i].GetComponent<CellBehaviour>().IsonFire = false;
-            }
-        }
-        else
-        {
-            fireinrang = false;
-            return;
-        }
-
-
+        grounds[0].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[1].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[2].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[3].GetComponent<CellBehaviour>().IsonFire = false;
+        grounds[4].GetComponent<CellBehaviour>().IsonFire = false;
     }
 }

@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour {
     public GameObject prefabfourfour;
     public GameObject prefabHelitack;
     public GameObject prefabwaterbomer;
-    public PutfireoutLT pFLT;
+    
 
     public bool isLowIntFire;
     public bool isMiddleIntFire;
@@ -99,11 +99,31 @@ public class GameManager : MonoBehaviour {
 
     public GameOverScript gameoverscript;
 
+	public List<GameObject> lts;
+	public List<GameObject> twofourss;
+	public List<GameObject> threefourss;
+	public List<GameObject> fourfours;
+	public List<GameObject> planes;
+	public List<GameObject> helitack;
+
+    public Button mainLTButton;
+    public Button mainFireTruck;
+    public Button mainPlane;
+    public Button mainEarthmoving;
     
+
+
+  
+
 
     void Awake()
     {
-       
+        mainLTButton.GetComponent<Button>();
+        mainFireTruck.GetComponent<Button>();
+        mainPlane.GetComponent<Button>();
+        mainEarthmoving.GetComponent<Button>();
+
+
 
         mycelllist = new List<CellBehaviour>();
 
@@ -123,8 +143,17 @@ public class GameManager : MonoBehaviour {
 
         BSs.GetComponent<BuildingSystems>();
 
-      //  win = GameObject.FindGameObjectWithTag("Win"). GetComponent<GameObject>();
-     //   lose = GameObject.FindGameObjectWithTag("loss"). GetComponent<GameObject>();
+		lts = new List<GameObject> ();
+		twofourss = new List<GameObject> ();
+		threefourss = new List<GameObject> ();
+		fourfours = new List<GameObject> ();
+		planes = new List<GameObject> ();
+		helitack = new List<GameObject> ();
+
+        
+
+        
+     
 
         
     }
@@ -306,6 +335,34 @@ public class GameManager : MonoBehaviour {
 
 
 			if (TBStates == TurnBasedStates.FireSpread) {
+
+			for(int a = 0; a < lts.Count; a++ )
+            {
+                lts.Remove(GameObject.FindGameObjectWithTag("car"));
+            }
+            for(int c = 0; c < twofourss.Count; c++)
+            {
+                twofourss.Remove(GameObject.FindGameObjectWithTag("24"));
+            }
+
+            for(int d = 0; d < threefourss.Count; d++)
+            {
+                threefourss.Remove(GameObject.FindGameObjectWithTag("34"));
+            }
+
+            for(int e = 0; e < fourfours.Count; e++)
+            {
+                fourfours.Remove(GameObject.FindGameObjectWithTag("44"));
+            }
+            for(int f =0; f < planes.Count; f++)
+            {
+                planes.Remove(GameObject.FindGameObjectWithTag("plane"));
+            }
+            for(int g = 0; g < helitack.Count; g++)
+            {
+                helitack.Remove(GameObject.FindGameObjectWithTag("heli"));
+            }
+
 			if (isStartOfGame == true)
 			{
 				SetOnFire();
@@ -344,6 +401,11 @@ public class GameManager : MonoBehaviour {
                 isFirstMovePlayer = false;
                 isPlayerSecondTurn = true;
 
+                mainLTButton.interactable = true;
+                mainFireTruck.interactable = false;
+                mainPlane.interactable = false;
+                mainEarthmoving.interactable = false;
+
             }
             if (GameObject.Find("ICV(Clone)") != null)
             {
@@ -357,21 +419,33 @@ public class GameManager : MonoBehaviour {
                 dozerSpawnButton.interactable = true;
 
                 isPlayerSecondTurn = false;
-      
+
+                mainLTButton.interactable = true;
+                mainFireTruck.interactable = false;
+                mainPlane.interactable = false;
+                mainEarthmoving.interactable = true;
+
             }
              if(isPlayerSecondTurn == false)
             {
                 icvSpawnButton.interactable = false;
-                ltSpawnButton.interactable = true;
+               
                 fourfourSpawnButton.interactable = true;
                 threefourSpawnButton.interactable = true;
                 twofourSpawnButton.interactable = true;
                 waterbomberSpawnButton.interactable = true;
                 helitackSpawnButton.interactable = true;
                 dozerSpawnButton.interactable = true;
-                
+
+                mainLTButton.interactable = true;
+                mainFireTruck.interactable = true;
+                mainPlane.interactable = true;
+                mainEarthmoving.interactable = true;
+
+
+
             }
-            if (GameObject.Find("D10spawn(Clone)") !=null)
+            if (GameObject.Find("D10spawn 1(Clone)") !=null)
             {
          
                 icvSpawnButton.interactable = false;
@@ -383,7 +457,12 @@ public class GameManager : MonoBehaviour {
                 helitackSpawnButton.interactable = true;
                 dozerSpawnButton.interactable = false;
                 EndMovementRound.SetActive(false);
-                
+
+                mainLTButton.interactable = true;
+                mainFireTruck.interactable = true;
+                mainPlane.interactable = true;
+                mainEarthmoving.interactable = true;
+
             }
 
            
@@ -437,9 +516,32 @@ public class GameManager : MonoBehaviour {
 
         }else if(TBStates == TurnBasedStates.PlayerAction)
         {
-            pFLT.GetActive();
+            
+			for (int i = 0; i < lts.Count; i++)
+			{
+                lts[i].GetComponent<PutfireoutLT>().GetActive();
 
-
+			}
+            for(int h = 0; h < twofourss.Count; h++ )
+            {
+                twofourss[h].GetComponent<PutoutFire24>().CheckforFire();
+            }
+            for(int j = 0; j < threefourss.Count; j++)
+            {
+                threefourss[j].GetComponent<PutOutFire34>();
+            }
+            for(int k =0; k < fourfours.Count; k++ )
+            {
+                fourfours[k].GetComponent<UfourfourPutoutfire>().CheckforFire();
+            }
+            for(int l = 0; l < planes.Count; l++ )
+            {
+                planes[l].GetComponent<PlanePutoutfire>().CheckforFire();
+            }
+            for(int m =0; m < helitack.Count; m++)
+            {
+                helitack[m].GetComponent<PutOutFireHelitack>().CheckforFire();
+            }
 
 
 
@@ -485,6 +587,15 @@ public class GameManager : MonoBehaviour {
         {
             TBStates = TurnBasedStates.PlayerLose;
         }
+       
+        lts.AddRange(GameObject.FindGameObjectsWithTag("car"));
+        twofourss.AddRange(GameObject.FindGameObjectsWithTag("24"));
+        threefourss.AddRange(GameObject.FindGameObjectsWithTag("34"));
+        fourfours.AddRange(GameObject.FindGameObjectsWithTag("44"));
+        planes.AddRange(GameObject.FindGameObjectsWithTag("plane"));
+        helitack.AddRange(GameObject.FindGameObjectsWithTag("heli"));
+
+
     }
 
 
@@ -587,7 +698,7 @@ public class GameManager : MonoBehaviour {
        
             
        
-        Debug.Log(GameObject.Find("ICV(Clone)"));
+        
 
     }
 

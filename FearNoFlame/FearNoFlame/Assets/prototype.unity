@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -333,6 +333,7 @@ GameObject:
   - component: {fileID: 104079136}
   - component: {fileID: 104079135}
   - component: {fileID: 104079134}
+  - component: {fileID: 104079137}
   m_Layer: 5
   m_Name: Earthmover
   m_TagString: Untagged
@@ -355,8 +356,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 24.599976, y: -22.24001}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 66.6, y: -53.3}
+  m_SizeDelta: {x: 178.27, y: 174.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104079134
 MonoBehaviour:
@@ -432,6 +433,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 104079132}
+--- !u!114 &104079137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 104079132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2fe865fb8b35ce4fb562c7e9ee73d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &134263815
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +776,7 @@ GameObject:
   - component: {fileID: 207752994}
   - component: {fileID: 207752993}
   - component: {fileID: 207752998}
+  - component: {fileID: 207752999}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -855,6 +868,17 @@ MonoBehaviour:
   panSpeed: 4
   panBorderThickness: 10
   panLimit: {x: 21.8, y: 0}
+--- !u!114 &207752999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 207752992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da64e7ebf541674c9f7196996149709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &213284652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,7 +2897,6 @@ MonoBehaviour:
     type: 2}
   prefabwaterbomer: {fileID: 1853203382062792, guid: 622396c4767b0c04a889fd7550251809,
     type: 2}
-  pFLT: {fileID: 114316408740890132, guid: 7e5603d65bda91e4baf60f8c3fecbe46, type: 2}
   isLowIntFire: 0
   isMiddleIntFire: 0
   isHighIntFire: 0
@@ -2881,6 +2904,17 @@ MonoBehaviour:
   ICVstat: {fileID: 1826500345174384, guid: 879155f78a156b74daf73c4b16097620, type: 2}
   win: {fileID: 1981959231}
   lose: {fileID: 705374131}
+  gameoverscript: {fileID: 0}
+  lts: []
+  twofourss: []
+  threefourss: []
+  fourfours: []
+  planes: []
+  helitack: []
+  mainLTButton: {fileID: 679999025}
+  mainFireTruck: {fileID: 1713670080}
+  mainPlane: {fileID: 1649352874}
+  mainEarthmoving: {fileID: 104079134}
 --- !u!4 &1205234175
 Transform:
   m_ObjectHideFlags: 0
@@ -3639,7 +3673,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1981959232
 RectTransform:
   m_ObjectHideFlags: 0

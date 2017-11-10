@@ -14,6 +14,12 @@ TagManager:
   - ICV
   - Win
   - loss
+  - car
+  - 24
+  - 34
+  - 44
+  - plane
+  - heli
   layers:
   - Default
   - TransparentFX
