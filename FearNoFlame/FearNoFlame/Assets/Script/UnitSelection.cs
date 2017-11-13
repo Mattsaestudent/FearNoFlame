@@ -46,7 +46,7 @@ public class UnitSelection : MonoBehaviour {
 
 
         }
-      
+
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -54,13 +54,13 @@ public class UnitSelection : MonoBehaviour {
             highlightedPlayer = null;
 
         }
-      
 
-          
-                
-          
-            
-        
+
+
+
+
+
+
     }
 
     void SelectObject(GameObject obj)
