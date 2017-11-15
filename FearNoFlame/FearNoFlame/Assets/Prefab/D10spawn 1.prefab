@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 54116019203126522}
   m_Layer: 0
   m_Name: D10spawn 1
-  m_TagString: Untagged
+  m_TagString: dozer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +82,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grounds: []
+  movementNumber: 0
+  donotmove: 0
+  unitSelection: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!212 &212864410030183862
 SpriteRenderer:
   m_ObjectHideFlags: 1

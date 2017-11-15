@@ -20,6 +20,12 @@ TagManager:
   - 44
   - plane
   - heli
+  - dozer
+  - Selection
+  - up
+  - down
+  - right
+  - left
   layers:
   - Default
   - TransparentFX
