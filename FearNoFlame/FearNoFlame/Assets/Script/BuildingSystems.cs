@@ -60,7 +60,7 @@ public class BuildingSystems : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         if (!EventSystem.current.IsPointerOverGameObject())
         {
 
@@ -68,6 +68,7 @@ public class BuildingSystems : MonoBehaviour
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
                 if (selectedObject != null)
                 {
 
@@ -75,6 +76,8 @@ public class BuildingSystems : MonoBehaviour
                     {
                         if (hit.transform.tag == "terrain")
                         {
+                           
+
                             if (Gm.waterTotal < 149)
                             {
                                 return;
@@ -117,6 +120,10 @@ public class BuildingSystems : MonoBehaviour
                                 Gm.waterTotal -= 1000;
                             }
 
+                            else if (GameObject.Find("ICV(Clone)") != null)
+                            {
+                                return;
+                            }
 
                         }
                         else

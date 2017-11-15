@@ -10,6 +10,7 @@ public class UnitSelection : MonoBehaviour {
 
     public Movement move;
 
+
     // Use this for initialization
     void Start()
     {
@@ -33,12 +34,15 @@ public class UnitSelection : MonoBehaviour {
 
 					SelectObject (hitObject);
 				}
+              
+                    
             }
             else
             {
                 ClearSelection();
                 return;
             }
+           
             if (Input.GetMouseButtonDown(0))
             {
                 SelectedPlayer = highlightedPlayer;
@@ -47,6 +51,8 @@ public class UnitSelection : MonoBehaviour {
 
         }
 
+      
+
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -54,6 +60,8 @@ public class UnitSelection : MonoBehaviour {
             highlightedPlayer = null;
 
         }
+
+
 
 
 

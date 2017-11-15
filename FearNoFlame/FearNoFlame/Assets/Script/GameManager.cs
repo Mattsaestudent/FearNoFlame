@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject> fourfours;
 	public List<GameObject> planes;
 	public List<GameObject> helitack;
+    public List<GameObject> dozer;
 
     public Button mainLTButton;
     public Button mainFireTruck;
@@ -149,13 +150,15 @@ public class GameManager : MonoBehaviour {
 		fourfours = new List<GameObject> ();
 		planes = new List<GameObject> ();
 		helitack = new List<GameObject> ();
+        dozer = new List<GameObject>();
 
-        
 
-        
-     
 
-        
+
+
+
+
+
     }
 
 
@@ -335,8 +338,14 @@ public class GameManager : MonoBehaviour {
 
 
 			if (TBStates == TurnBasedStates.FireSpread) {
+            for (int o = 0; o < dozer.Count; o++)
+            {
+                dozer[o].GetComponent<GradingGround>().movementNumber = 0;
+                
+               
+            }
 
-			for(int a = 0; a < lts.Count; a++ )
+            for (int a = 0; a < lts.Count; a++ )
             {
                 lts.Remove(GameObject.FindGameObjectWithTag("car"));
             }
@@ -409,7 +418,7 @@ public class GameManager : MonoBehaviour {
             }
             if (GameObject.Find("ICV(Clone)") != null)
             {
-                icvSpawnButton.interactable = false;
+                icvSpawnButton.interactable = true;
                 ltSpawnButton.interactable = false;
                 fourfourSpawnButton.interactable = false;
                 threefourSpawnButton.interactable = false;
@@ -426,6 +435,7 @@ public class GameManager : MonoBehaviour {
                 mainEarthmoving.interactable = true;
 
             }
+            
              if(isPlayerSecondTurn == false)
             {
                 icvSpawnButton.interactable = false;
@@ -463,6 +473,8 @@ public class GameManager : MonoBehaviour {
                 mainPlane.interactable = true;
                 mainEarthmoving.interactable = true;
 
+
+                dozer.AddRange(GameObject.FindGameObjectsWithTag("dozer"));
             }
 
            
