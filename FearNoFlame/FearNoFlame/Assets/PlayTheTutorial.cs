@@ -16,6 +16,12 @@ public class PlayTheTutorial : MonoBehaviour {
     public GameObject wheretobuildtwo;
     public GameObject wheretobuildthree;
 
+    public GameObject wheretobuildbuttonone;
+    public GameObject wheretobuildbuttontwo;
+    public GameObject wheretobuildbuttonthree;
+    public GameObject wheretobuildbuttonfour;
+    public GameObject wheretobuildbuttonfive;
+
     public GameObject Lookforthefire;
     public GameObject BuildICV;
     public GameObject BuildtheDozer;
