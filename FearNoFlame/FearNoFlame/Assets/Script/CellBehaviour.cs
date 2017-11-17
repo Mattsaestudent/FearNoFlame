@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CellBehaviour : MonoBehaviour {
-
     public enum StatesOfCell
     {
        LowIntFire,MiddleIntFire,HighIntFire, BurntGround,StillGreen,
@@ -43,7 +42,21 @@ public class CellBehaviour : MonoBehaviour {
 
     public int CellsOnFire;
 
-    
+    public bool fireisvisablelow;
+
+    public bool fireisvisablemed;
+
+    public bool fireisvisablehigh;
+    public GameObject Lookforthefire;
+
+    public GameObject BuildICV;
+
+    public GameObject WheretobuildICV;
+    public GameObject WheretobuildICVOne;
+    public GameObject WheretobuildICVTwo;
+    public GameObject WheretobuildICVThree;
+
+
 
     void Awake()
     {
@@ -57,14 +70,29 @@ public class CellBehaviour : MonoBehaviour {
 
         IsonFire = false;
 
-       
+        fireisvisablelow = false;
+        fireisvisablemed = false;
+        fireisvisablehigh = false;
+
+        Lookforthefire = GameObject.Find("Look for the fire");
+        BuildICV = GameObject.Find("BuildICV");
+
+        WheretobuildICV = GameObject.Find("WheretobuildICV");
+        WheretobuildICVOne = GameObject.Find("WheretobuildICV (1)");
+        WheretobuildICVTwo = GameObject.Find("WheretobuildICV (2)");
+        WheretobuildICVThree = GameObject.Find("WheretobuildICV (3)");
     }
 
-    
+    void Start()
+    {
+        
+    }
+
+
 
     //this method implements cell's behaviour
 
-   
+
 
     public void CellsUpdate()
     {
@@ -295,6 +323,100 @@ public class CellBehaviour : MonoBehaviour {
         }
 
         GetCellOnFire();
+        DistancetoCamera();
+    }
+
+   public void DistancetoCamera()
+    {
+        if (currentState == StatesOfCell.LowIntFire)
+        {
+            var disone = Vector3.Distance(Camera.main.transform.position, this.transform.position);
+            if (this.GetComponent<Renderer>().isVisible)
+            {
+                fireisvisablelow = true;
+                
+                Debug.Log(disone);
+                if (fireisvisablelow == true)
+                {
+                    if (disone <= 28)
+                    {
+                        Lookforthefire.SetActive(false);
+                        BuildICV.SetActive(true);
+                       
+                    }
+                  
+                }
+                 
+               
+        
+            }
+            else
+            {
+                fireisvisablelow = false;
+            }
+
+           
+
+        }
+        
+        if (currentState == StatesOfCell.MiddleIntFire)
+        {
+            var distwo = Vector3.Distance(Camera.main.transform.position, this.transform.position);
+            if (this.GetComponent<Renderer>().isVisible)
+            {
+                fireisvisablemed = true;
+                
+                Debug.Log(distwo);
+                if (fireisvisablemed == true)
+                {
+                    if (distwo <= 28)
+                    {
+                        Lookforthefire.SetActive(false);
+                        BuildICV.SetActive(true);
+
+                       
+
+                    }
+                }
+            }
+            else
+            {
+                fireisvisablemed = false;
+            }
+           
+        }
+        if (currentState == StatesOfCell.HighIntFire)
+        {
+            var disthree = Vector3.Distance(Camera.main.transform.position, this.transform.position);
+            if (this.GetComponent<Renderer>().isVisible)
+            {
+                fireisvisablehigh = true;
+                 
+                Debug.Log(disthree);
+                if (fireisvisablehigh == true)
+                {
+                    if (disthree <= 28)
+                    {
+                        Lookforthefire.SetActive(false);
+                        BuildICV.SetActive(true);
+
+                       
+
+
+
+                    }
+                }
+            }
+            else
+            {
+                fireisvisablehigh = false;
+            }
+
+           
+        }
+
+        
+
     }
 
 }

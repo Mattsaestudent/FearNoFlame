@@ -111,10 +111,12 @@ public class GameManager : MonoBehaviour {
     public Button mainFireTruck;
     public Button mainPlane;
     public Button mainEarthmoving;
-    
+
+    public GameObject Lookforthefire;
 
 
-  
+
+
 
 
     void Awake()

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 23465566328474310}
   - component: {fileID: 114559445814199266}
   - component: {fileID: 65214625604468928}
+  - component: {fileID: 114119190421243726}
   m_Layer: 0
   m_Name: Prefab
   m_TagString: terrain
@@ -107,6 +108,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114119190421243726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1018634346299204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b01304ed51d0d948a3827aa467d612c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellsinveiw: []
+  anObject: {fileID: 0}
+  anObjCollider: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!114 &114559445814199266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,3 +154,12 @@ MonoBehaviour:
   enviromentalMakeUp: 0
   BurnOut: 0
   CellsOnFire: 0
+  fireisvisablelow: 0
+  fireisvisablemed: 0
+  fireisvisablehigh: 0
+  Lookforthefire: {fileID: 0}
+  BuildICV: {fileID: 0}
+  WheretobuildICV: {fileID: 0}
+  WheretobuildICVOne: {fileID: 0}
+  WheretobuildICVTwo: {fileID: 0}
+  WheretobuildICVThree: {fileID: 0}

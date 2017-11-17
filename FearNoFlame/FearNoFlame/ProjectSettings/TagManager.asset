@@ -26,6 +26,7 @@ TagManager:
   - down
   - right
   - left
+  - Look for the fire
   layers:
   - Default
   - TransparentFX

@@ -11,22 +11,20 @@ public class PlayTheTutorial : MonoBehaviour {
 
     public GameObject camera;
 
-    public GameObject wheretobuild;
-    public GameObject wheretobuildone;
-    public GameObject wheretobuildtwo;
-    public GameObject wheretobuildthree;
-
-    public GameObject wheretobuildbuttonone;
-    public GameObject wheretobuildbuttontwo;
-    public GameObject wheretobuildbuttonthree;
-    public GameObject wheretobuildbuttonfour;
-    public GameObject wheretobuildbuttonfive;
 
     public GameObject Lookforthefire;
     public GameObject BuildICV;
     public GameObject BuildtheDozer;
 
     public GameObject toggle;
+
+    public GameObject prefab;
+
+    public GameObject WheretobuildICV;
+    public GameObject WheretobuildICVOne;
+    public GameObject WheretobuildICVTwo;
+    public GameObject WheretobuildICVThree;
+
   
 
 	// Use this for initialization
@@ -36,11 +34,8 @@ public class PlayTheTutorial : MonoBehaviour {
         down = GameObject.Find("Down");
         right = GameObject.Find("Right");
         left = GameObject.Find("Left");
-        wheretobuild = GameObject.Find("Where to build");
-        wheretobuildone = GameObject.Find("Where to build (1)");
-        wheretobuildtwo = GameObject.Find("Where to build (2)");
-        wheretobuildthree = GameObject.Find("Where to build (3)");
-        Lookforthefire = GameObject.Find("Look for the fire");
+       
+        
         BuildICV = GameObject.Find("BuildICV");
         BuildtheDozer = GameObject.Find("Build the dozer");
 
@@ -48,16 +43,21 @@ public class PlayTheTutorial : MonoBehaviour {
 
         toggle = GameObject.Find("Toggle");
 
-        wheretobuild.SetActive(false);
-        wheretobuildone.SetActive(false);
-        wheretobuildtwo.SetActive(false);
-        wheretobuildthree.SetActive(false);
+        WheretobuildICV = GameObject.Find("WheretobuildICV");
+        WheretobuildICVOne = GameObject.Find("WheretobuildICV (1)");
+        WheretobuildICVTwo = GameObject.Find("WheretobuildICV (2)");
+        WheretobuildICVThree = GameObject.Find("WheretobuildICV (3)");
+
+
         Lookforthefire.SetActive(false);
         BuildICV.SetActive(false);
         BuildtheDozer.SetActive(false);
 
-
-        
+        WheretobuildICV.SetActive(false);
+        WheretobuildICVOne.SetActive(false);
+        WheretobuildICVTwo.SetActive(false);
+        WheretobuildICVThree.SetActive(false);
+       
 
     }
 
@@ -84,13 +84,16 @@ public class PlayTheTutorial : MonoBehaviour {
         if (camera.GetComponent<CameraLookAround>().isup == true && camera.GetComponent<CameraLookAround>().isdown == true && camera.GetComponent<CameraLookAround>().isrigh == true && camera.GetComponent<CameraLookAround>().isleft == true)
         {
             Lookforthefire.SetActive(true);
+            
         }
 
-        if(toggle.GetComponent<FoundTheFire>().foundthefire == true)
+        if(BuildICV.activeInHierarchy)
         {
             Lookforthefire.SetActive(false);
-            BuildICV.SetActive(true);
         }
-     }
+
+
+
+    }
  }
 
