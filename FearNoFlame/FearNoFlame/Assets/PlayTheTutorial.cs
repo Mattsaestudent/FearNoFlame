@@ -25,10 +25,17 @@ public class PlayTheTutorial : MonoBehaviour {
     public GameObject WheretobuildICVTwo;
     public GameObject WheretobuildICVThree;
 
-  
+    public GameObject cube;
 
-	// Use this for initialization
-	void Start ()
+    public GameObject smallSelecthighlight;
+    public GameObject smallSelecthighlightOne;
+    public GameObject smallSelecthighlighttwo;
+    public GameObject smallSelecthighlightThree;
+
+
+
+    // Use this for initialization
+    void Start ()
     {
         up = GameObject.Find("Up");
         down = GameObject.Find("Down");
@@ -48,6 +55,11 @@ public class PlayTheTutorial : MonoBehaviour {
         WheretobuildICVTwo = GameObject.Find("WheretobuildICV (2)");
         WheretobuildICVThree = GameObject.Find("WheretobuildICV (3)");
 
+        smallSelecthighlight = GameObject.Find("smallselecthightlight");
+        smallSelecthighlightOne = GameObject.Find("smallselecthightlight (1)");
+        smallSelecthighlighttwo = GameObject.Find("smallselecthightlight (2)");
+        smallSelecthighlightThree = GameObject.Find("smallselecthightlight (3)");
+
 
         Lookforthefire.SetActive(false);
         BuildICV.SetActive(false);
@@ -57,13 +69,18 @@ public class PlayTheTutorial : MonoBehaviour {
         WheretobuildICVOne.SetActive(false);
         WheretobuildICVTwo.SetActive(false);
         WheretobuildICVThree.SetActive(false);
-       
+        smallSelecthighlight.SetActive(false);
+        smallSelecthighlightOne.SetActive(false);
+        smallSelecthighlighttwo.SetActive(false);
+        smallSelecthighlightThree.SetActive(false);
 
     }
 
     // Update is called once per frame
     void Update()
     {
+     
+
         if (camera.GetComponent<CameraLookAround>().isup == true)
         {
             up.SetActive(false);
@@ -90,6 +107,23 @@ public class PlayTheTutorial : MonoBehaviour {
         if(BuildICV.activeInHierarchy)
         {
             Lookforthefire.SetActive(false);
+
+            var distanceToCube = Vector3.Distance(Camera.main.transform.position, cube.transform.position);
+
+            Debug.Log(distanceToCube);
+
+            if(distanceToCube > 43)
+            {
+                WheretobuildICV.SetActive(true);
+                WheretobuildICVOne.SetActive(true);
+                WheretobuildICVTwo.SetActive(true);
+                WheretobuildICVThree.SetActive(true);
+                smallSelecthighlight.SetActive(true);
+                smallSelecthighlightOne.SetActive(true);
+                smallSelecthighlighttwo.SetActive(true);
+                smallSelecthighlightThree.SetActive(true);
+            }
+
         }
 
 

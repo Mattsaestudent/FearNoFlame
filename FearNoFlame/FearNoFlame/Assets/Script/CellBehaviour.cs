@@ -392,7 +392,7 @@ public class CellBehaviour : MonoBehaviour {
             {
                 fireisvisablehigh = true;
                  
-                Debug.Log(disthree);
+ 
                 if (fireisvisablehigh == true)
                 {
                     if (disthree <= 28)
