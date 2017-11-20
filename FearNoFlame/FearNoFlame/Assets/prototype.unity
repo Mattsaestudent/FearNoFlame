@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 19803937}
   - component: {fileID: 19803936}
   m_Layer: 5
-  m_Name: smallselecthightlight (17)
+  m_Name: ICVButtonHigh(1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,7 +141,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.624}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.822, y: -136.4}
+  m_AnchoredPosition: {x: 13.7, y: -135.1}
   m_SizeDelta: {x: -782.57, y: -383.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19803936
@@ -512,6 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff286bdb64afbc499f4fabd423680ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LTbutton: {fileID: 679999025}
+  dozerB: {fileID: 104079134}
   up: {fileID: 1471384209}
   down: {fileID: 2143098284}
   right: {fileID: 1715575474}
@@ -531,6 +533,33 @@ MonoBehaviour:
   smallSelecthighlightOne: {fileID: 0}
   smallSelecthighlighttwo: {fileID: 0}
   smallSelecthighlightThree: {fileID: 0}
+  wheretoBuildDozer: {fileID: 0}
+  wheretoBuildDozerOne: {fileID: 0}
+  wheretoBuildDozerTwo: {fileID: 0}
+  wheretoBuildDozerThree: {fileID: 0}
+  dozerHighlight: {fileID: 0}
+  dozerHighlightOne: {fileID: 0}
+  dozerHighlightTwo: {fileID: 0}
+  dozerHighlightThree: {fileID: 0}
+  ICVbuttonhighlight: {fileID: 0}
+  ICVbuttonhighlightOne: {fileID: 0}
+  ICVbuttonhighlightTwo: {fileID: 0}
+  ICVbuttonhighlightThree: {fileID: 0}
+  DozerbuttonhighLight: {fileID: 0}
+  DozerbuttonhighLightOne: {fileID: 0}
+  DozerbuttonhighLightTwo: {fileID: 0}
+  DozerbuttonhighLightThree: {fileID: 0}
+  buttonHighLight: {fileID: 0}
+  buttonHighLightOne: {fileID: 0}
+  buttonHighLightTwo: {fileID: 0}
+  buttonHighLightThree: {fileID: 0}
+  dozerMovementtut: {fileID: 0}
+  dozerMovementtutOne: {fileID: 0}
+  dozerMovementtutTwo: {fileID: 0}
+  dozerMovementtutThree: {fileID: 0}
+  Down: {fileID: 0}
+  ICVbuttonON: 0
+  DozerButtonON: 0
 --- !u!1 &104079132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1263,7 +1292,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 207752992}
   m_LocalRotation: {x: -0.70710605, y: -0.0010366236, z: 0.0010366236, w: -0.70710605}
-  m_LocalPosition: {x: 21.8, y: 24.4, z: 9.9}
+  m_LocalPosition: {x: 21.81, y: 24.4, z: 13.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1679,7 +1708,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1}
+  m_AnchoredPosition: {x: 0, y: -2.5}
   m_SizeDelta: {x: 32.68, y: 26.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &260732195
@@ -1726,7 +1755,7 @@ GameObject:
   - component: {fileID: 275874329}
   - component: {fileID: 275874328}
   m_Layer: 5
-  m_Name: DozerMovementthree
+  m_Name: DM (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1748,7 +1777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -269.711}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -388, y: 36}
+  m_AnchoredPosition: {x: -386.1, y: 36}
   m_SizeDelta: {x: -761.38, y: -359.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &275874328
@@ -1898,7 +1927,7 @@ GameObject:
   - component: {fileID: 319134087}
   - component: {fileID: 319134086}
   m_Layer: 5
-  m_Name: ButtonHighlight
+  m_Name: ButtonHigh (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1967,7 +1996,7 @@ GameObject:
   - component: {fileID: 326576119}
   - component: {fileID: 326576118}
   m_Layer: 5
-  m_Name: DozerMovementOne
+  m_Name: DM (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2036,7 +2065,7 @@ GameObject:
   - component: {fileID: 384767690}
   - component: {fileID: 384767689}
   m_Layer: 5
-  m_Name: Where to build (5)
+  m_Name: Wheretobuilddozer (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2105,7 +2134,7 @@ GameObject:
   - component: {fileID: 385731387}
   - component: {fileID: 385731386}
   m_Layer: 5
-  m_Name: Where to build (4)
+  m_Name: Wheretobuilddozer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2242,7 +2271,7 @@ GameObject:
   - component: {fileID: 398180048}
   - component: {fileID: 398180047}
   m_Layer: 5
-  m_Name: smallselecthightlight (7)
+  m_Name: Dozer red (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2790,7 +2819,7 @@ GameObject:
   - component: {fileID: 534132952}
   - component: {fileID: 534132951}
   m_Layer: 5
-  m_Name: smallselecthightlight (21)
+  m_Name: DozerButtonhigh (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3131,7 +3160,7 @@ GameObject:
   - component: {fileID: 573351106}
   - component: {fileID: 573351105}
   m_Layer: 5
-  m_Name: smallselecthightlight (18)
+  m_Name: ICVButtonHigh(2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3153,7 +3182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.04999}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.8, y: -191}
+  m_AnchoredPosition: {x: 11.6, y: -192.5}
   m_SizeDelta: {x: -783.07, y: -383.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &573351105
@@ -3200,7 +3229,7 @@ GameObject:
   - component: {fileID: 603832307}
   - component: {fileID: 603832306}
   m_Layer: 5
-  m_Name: smallselecthightlight (22)
+  m_Name: DozerButtonhigh (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3214,7 +3243,7 @@ RectTransform:
   m_GameObject: {fileID: 603832304}
   m_LocalRotation: {x: -0, y: -0, z: -0.99999994, w: -0.00043955585}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 0.99999994}
+  m_LocalScale: {x: 1.0000005, y: 1.0000005, z: 0.9999999}
   m_Children:
   - {fileID: 1963643452}
   m_Father: {fileID: 94922448}
@@ -3340,7 +3369,7 @@ GameObject:
   - component: {fileID: 615319707}
   - component: {fileID: 615319706}
   m_Layer: 5
-  m_Name: smallselecthightlight (23)
+  m_Name: DozerButtonhigh (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3362,7 +3391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -269.65698}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13.500034, y: -191.9}
+  m_AnchoredPosition: {x: 30.1, y: -192.6}
   m_SizeDelta: {x: -782.16, y: -382.08}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615319706
@@ -3728,8 +3757,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'A good strategy is a dirty one... Clear the ground
-
+  m_Text: 'Build a Machine that moves earth
 
 '
 --- !u!222 &640287051
@@ -4064,7 +4092,7 @@ GameObject:
   - component: {fileID: 684345179}
   - component: {fileID: 684345178}
   m_Layer: 5
-  m_Name: buttonhightlightthree
+  m_Name: ButtonHigh (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4868,7 +4896,7 @@ GameObject:
   - component: {fileID: 840487517}
   - component: {fileID: 840487516}
   m_Layer: 5
-  m_Name: smallselecthightlight (4)
+  m_Name: Dozer red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5270,7 +5298,7 @@ GameObject:
   - component: {fileID: 948601614}
   - component: {fileID: 948601613}
   m_Layer: 5
-  m_Name: smallselecthightlight (6)
+  m_Name: Dozer red (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6662,7 +6690,7 @@ GameObject:
   - component: {fileID: 1138683107}
   - component: {fileID: 1138683106}
   m_Layer: 5
-  m_Name: smallselecthightlight (16)
+  m_Name: ICVButtonHigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6731,7 +6759,7 @@ GameObject:
   - component: {fileID: 1150919928}
   - component: {fileID: 1150919927}
   m_Layer: 5
-  m_Name: Where to build (7)
+  m_Name: Wheretobuilddozer (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6822,7 +6850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3, y: -166}
+  m_AnchoredPosition: {x: 5.3, y: 165}
   m_SizeDelta: {x: -451.68005, y: -328.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1161110063
@@ -7351,7 +7379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Everything starts with good commuication
+  m_Text: 'Build some thing with good commuication
 
 '
 --- !u!222 &1305798313
@@ -7439,7 +7467,7 @@ GameObject:
   - component: {fileID: 1339808004}
   - component: {fileID: 1339808003}
   m_Layer: 5
-  m_Name: DozerMovementTwo
+  m_Name: DM (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7577,7 +7605,7 @@ GameObject:
   - component: {fileID: 1387303483}
   - component: {fileID: 1387303482}
   m_Layer: 5
-  m_Name: DozerMovement
+  m_Name: DM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7599,7 +7627,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -385, y: 77}
+  m_AnchoredPosition: {x: -383.3, y: 77}
   m_SizeDelta: {x: -761.38, y: -359.72}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1387303482
@@ -7909,7 +7937,7 @@ GameObject:
   - component: {fileID: 1404918204}
   - component: {fileID: 1404918203}
   m_Layer: 5
-  m_Name: smallselecthightlight (19)
+  m_Name: ICVButtonHigh(3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8183,7 +8211,7 @@ GameObject:
   - component: {fileID: 1471466573}
   - component: {fileID: 1471466572}
   m_Layer: 5
-  m_Name: buttonhightlike four
+  m_Name: ButtonHigh (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8462,7 +8490,7 @@ GameObject:
   - component: {fileID: 1525245213}
   - component: {fileID: 1525245212}
   m_Layer: 5
-  m_Name: Where to build (6)
+  m_Name: Wheretobuilddozer (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8667,7 +8695,7 @@ GameObject:
   - component: {fileID: 1603177490}
   - component: {fileID: 1603177489}
   m_Layer: 5
-  m_Name: ButtonHighligh
+  m_Name: ButtonHigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8758,7 +8786,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.1, y: -166.8}
+  m_AnchoredPosition: {x: 6.1, y: 164}
   m_SizeDelta: {x: -451.68005, y: -328.49}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1640969307
@@ -8983,7 +9011,7 @@ GameObject:
   - component: {fileID: 1658137549}
   - component: {fileID: 1658137548}
   m_Layer: 5
-  m_Name: smallselecthightlight (5)
+  m_Name: Dozer red (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9149,7 +9177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000007391, y: 0.000005126}
+  m_AnchoredPosition: {x: 1.2, y: -0}
   m_SizeDelta: {x: 32.68, y: 26.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1691785342
@@ -9588,7 +9616,7 @@ GameObject:
   - component: {fileID: 1914863695}
   - component: {fileID: 1914863694}
   m_Layer: 5
-  m_Name: smallselecthightlight (20)
+  m_Name: DozerButtonhigh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9610,7 +9638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 13.500034, y: -135}
+  m_AnchoredPosition: {x: 31.350006, y: -135.20004}
   m_SizeDelta: {x: -784.66, y: -380.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914863694

@@ -335,7 +335,7 @@ public class CellBehaviour : MonoBehaviour {
             {
                 fireisvisablelow = true;
                 
-                Debug.Log(disone);
+
                 if (fireisvisablelow == true)
                 {
                     if (disone <= 28)
@@ -366,7 +366,7 @@ public class CellBehaviour : MonoBehaviour {
             {
                 fireisvisablemed = true;
                 
-                Debug.Log(distwo);
+
                 if (fireisvisablemed == true)
                 {
                     if (distwo <= 28)
