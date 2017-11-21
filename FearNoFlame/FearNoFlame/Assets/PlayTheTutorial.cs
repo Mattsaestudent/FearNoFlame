@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayTheTutorial : MonoBehaviour {
+
+    public Button LTbutton;
+    public Button dozerB;
 
     public GameObject up;
     public GameObject down;
@@ -32,11 +36,55 @@ public class PlayTheTutorial : MonoBehaviour {
     public GameObject smallSelecthighlighttwo;
     public GameObject smallSelecthighlightThree;
 
+    public GameObject wheretoBuildDozer;
+    public GameObject wheretoBuildDozerOne;
+    public GameObject wheretoBuildDozerTwo;
+    public GameObject wheretoBuildDozerThree;
+
+    public GameObject dozerHighlight;
+    public GameObject dozerHighlightOne;
+    public GameObject dozerHighlightTwo;
+    public GameObject dozerHighlightThree;
+
+    public GameObject ICVbuttonhighlight;
+    public GameObject ICVbuttonhighlightOne;
+    public GameObject ICVbuttonhighlightTwo;
+    public GameObject ICVbuttonhighlightThree;
+
+    public GameObject DozerbuttonhighLight;
+    public GameObject DozerbuttonhighLightOne;
+    public GameObject DozerbuttonhighLightTwo;
+    public GameObject DozerbuttonhighLightThree;
+
+    public GameObject buttonHighLight;
+    public GameObject buttonHighLightOne;
+    public GameObject buttonHighLightTwo;
+    public GameObject buttonHighLightThree;
+
+    public GameObject dozerMovementtut;
+    public GameObject dozerMovementtutOne;
+    public GameObject dozerMovementtutTwo;
+    public GameObject dozerMovementtutThree;
+
+    public GameObject Down;
+
+    public bool ICVbuttonON;
+
+    public bool DozerButtonON;
+
+
+
+
+
 
 
     // Use this for initialization
     void Start ()
     {
+        
+
+        ICVbuttonON = false;
+
         up = GameObject.Find("Up");
         down = GameObject.Find("Down");
         right = GameObject.Find("Right");
@@ -60,6 +108,43 @@ public class PlayTheTutorial : MonoBehaviour {
         smallSelecthighlighttwo = GameObject.Find("smallselecthightlight (2)");
         smallSelecthighlightThree = GameObject.Find("smallselecthightlight (3)");
 
+        wheretoBuildDozer = GameObject.Find("Wheretobuilddozer");
+        wheretoBuildDozerOne = GameObject.Find("Wheretobuilddozer (1)");
+        wheretoBuildDozerTwo = GameObject.Find("Wheretobuilddozer (2)");
+        wheretoBuildDozerThree = GameObject.Find("Wheretobuilddozer (3)");
+
+        dozerHighlight = GameObject.Find("Dozer red");
+        dozerHighlightOne = GameObject.Find("Dozer red (1)");
+        dozerHighlightTwo = GameObject.Find("Dozer red (2)");
+        dozerHighlightThree = GameObject.Find("Dozer red (3)");
+
+        ICVbuttonhighlight = GameObject.Find("ICVButtonHigh");
+        ICVbuttonhighlightOne = GameObject.Find("ICVButtonHigh(1)");
+        ICVbuttonhighlightTwo = GameObject.Find("ICVButtonHigh(2)");
+        ICVbuttonhighlightThree = GameObject.Find("ICVButtonHigh(3)");
+
+        DozerbuttonhighLight = GameObject.Find("DozerButtonhigh");
+        DozerbuttonhighLightOne = GameObject.Find("DozerButtonhigh (1)");
+        DozerbuttonhighLightTwo = GameObject.Find("DozerButtonhigh (2)");
+        DozerbuttonhighLightThree = GameObject.Find("DozerButtonhigh (3)");
+
+        buttonHighLight = GameObject.Find("ButtonHigh");
+        buttonHighLightOne = GameObject.Find("ButtonHigh (1)");
+        buttonHighLightTwo = GameObject.Find("ButtonHigh (2)");
+        buttonHighLightThree = GameObject.Find("ButtonHigh (3)");
+
+        dozerMovementtut = GameObject.Find("DM");
+        dozerMovementtutOne = GameObject.Find("DM (1)");
+        dozerMovementtutTwo = GameObject.Find("DM (2)");
+        dozerMovementtutThree = GameObject.Find("DM (3)");
+
+        Down = GameObject.Find("Down");
+
+        
+
+
+
+
 
         Lookforthefire.SetActive(false);
         BuildICV.SetActive(false);
@@ -73,6 +158,42 @@ public class PlayTheTutorial : MonoBehaviour {
         smallSelecthighlightOne.SetActive(false);
         smallSelecthighlighttwo.SetActive(false);
         smallSelecthighlightThree.SetActive(false);
+
+        wheretoBuildDozer.SetActive(false);
+        wheretoBuildDozerOne.SetActive(false);
+        wheretoBuildDozerTwo.SetActive(false);
+        wheretoBuildDozerThree.SetActive(false);
+
+        dozerHighlight.SetActive(false);
+        dozerHighlightOne.SetActive(false);
+        dozerHighlightTwo.SetActive(false);
+        dozerHighlightThree.SetActive(false);
+
+        ICVbuttonhighlight.SetActive(false);
+        ICVbuttonhighlightOne.SetActive(false);
+        ICVbuttonhighlightTwo.SetActive(false);
+        ICVbuttonhighlightThree.SetActive(false);
+
+        DozerbuttonhighLight.SetActive(false);
+        DozerbuttonhighLightOne.SetActive(false);
+        DozerbuttonhighLightTwo.SetActive(false);
+        DozerbuttonhighLightThree.SetActive(false);
+
+        buttonHighLight.SetActive(false);
+        buttonHighLightOne.SetActive(false);
+        buttonHighLightTwo.SetActive(false);
+        buttonHighLightThree.SetActive(false);
+
+        dozerMovementtut.SetActive(false);
+        dozerMovementtutOne.SetActive(false);
+        dozerMovementtutTwo.SetActive(false);
+        dozerMovementtutThree.SetActive(false);
+
+
+        Button LTbuttoned = LTbutton.GetComponent<Button>();
+        LTbutton.onClick.AddListener(buttonHighLigh);
+        Button dozerBt = dozerB.GetComponent<Button>();
+        dozerB.onClick.AddListener(DozerButtonOnNow);
 
     }
 
@@ -110,7 +231,9 @@ public class PlayTheTutorial : MonoBehaviour {
 
             var distanceToCube = Vector3.Distance(Camera.main.transform.position, cube.transform.position);
 
-            Debug.Log(distanceToCube);
+
+
+            Down.SetActive(true);
 
             if(distanceToCube > 43)
             {
@@ -126,8 +249,104 @@ public class PlayTheTutorial : MonoBehaviour {
 
         }
 
+        if (GameObject.Find("ICV(Clone)") != null)
+        {
+            Down.SetActive(false);
+            WheretobuildICV.SetActive(false);
+            WheretobuildICVOne.SetActive(false);
+            WheretobuildICVTwo.SetActive(false);
+            WheretobuildICVThree.SetActive(false);
+            smallSelecthighlight.SetActive(false);
+            smallSelecthighlightOne.SetActive(false);
+            smallSelecthighlighttwo.SetActive(false);
+            smallSelecthighlightThree.SetActive(false);
+
+            BuildICV.SetActive(false);
+
+            BuildtheDozer.SetActive(true);
+            wheretoBuildDozer.SetActive(true);
+            wheretoBuildDozerOne.SetActive(true);
+            wheretoBuildDozerTwo.SetActive(true);
+            wheretoBuildDozerThree.SetActive(true);
+
+            ICVbuttonON = false;
+
+            dozerHighlight.SetActive(true);
+            dozerHighlightOne.SetActive(true);
+            dozerHighlightTwo.SetActive(true);
+            dozerHighlightThree.SetActive(true);
+
+            DozerbuttonhighLight.SetActive(true);
+            DozerbuttonhighLightOne.SetActive(true);
+            DozerbuttonhighLightTwo.SetActive(true);
+            DozerbuttonhighLightThree.SetActive(true);
 
 
+        }
+
+        if (GameObject.Find("D10spawn 1(Clone)") != null)
+        {
+            BuildtheDozer.SetActive(false);
+            wheretoBuildDozer.SetActive(false);
+            wheretoBuildDozerOne.SetActive(false);
+            wheretoBuildDozerTwo.SetActive(false);
+            wheretoBuildDozerThree.SetActive(false);
+            dozerHighlight.SetActive(false);
+            dozerHighlightOne.SetActive(false);
+            dozerHighlightTwo.SetActive(false);
+            dozerHighlightThree.SetActive(false);
+
+            DozerbuttonhighLight.SetActive(false);
+            DozerbuttonhighLightOne.SetActive(false);
+            DozerbuttonhighLightTwo.SetActive(false);
+            DozerbuttonhighLightThree.SetActive(false);
+            DozerButtonON = false;
+        }
+
+            if (ICVbuttonON == true)
+        {
+            ICVbuttonhighlight.SetActive(true);
+            ICVbuttonhighlightOne.SetActive(true);
+            ICVbuttonhighlightTwo.SetActive(true);
+            ICVbuttonhighlightThree.SetActive(true);
+            Down.SetActive(false);
+        }
+        else
+        {
+            ICVbuttonhighlight.SetActive(false);
+            ICVbuttonhighlightOne.SetActive(false);
+            ICVbuttonhighlightTwo.SetActive(false);
+            ICVbuttonhighlightThree.SetActive(false);
+        }
+
+        if(DozerButtonON == true)
+        {
+            DozerbuttonhighLight.SetActive(true);
+            DozerbuttonhighLightOne.SetActive(true);
+            DozerbuttonhighLightTwo.SetActive(true);
+            DozerbuttonhighLightThree.SetActive(true);
+        }
+        else
+        {
+            DozerbuttonhighLight.SetActive(false);
+            DozerbuttonhighLightOne.SetActive(false);
+            DozerbuttonhighLightTwo.SetActive(false);
+            DozerbuttonhighLightThree.SetActive(false);
+        }
+
+
+
+    }
+
+    void buttonHighLigh()
+    {
+        ICVbuttonON = true;
+        
+    }
+
+    void DozerButtonOnNow()
+    {
+        DozerButtonON = true;
     }
  }
 
