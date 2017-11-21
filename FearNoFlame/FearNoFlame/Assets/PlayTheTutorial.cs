@@ -8,6 +8,8 @@ public class PlayTheTutorial : MonoBehaviour {
     public Button LTbutton;
     public Button dozerB;
 
+    public GameObject dozerWhatToDo;
+
     public GameObject up;
     public GameObject down;
     public GameObject right;
@@ -67,6 +69,8 @@ public class PlayTheTutorial : MonoBehaviour {
     public GameObject dozerMovementtutThree;
 
     public GameObject Down;
+
+    
 
     public bool ICVbuttonON;
 
@@ -140,7 +144,7 @@ public class PlayTheTutorial : MonoBehaviour {
 
         Down = GameObject.Find("Down");
 
-        
+        dozerWhatToDo = GameObject.Find("Dozer");
 
 
 
@@ -189,6 +193,8 @@ public class PlayTheTutorial : MonoBehaviour {
         dozerMovementtutTwo.SetActive(false);
         dozerMovementtutThree.SetActive(false);
 
+        dozerWhatToDo.SetActive(false);
+
 
         Button LTbuttoned = LTbutton.GetComponent<Button>();
         LTbutton.onClick.AddListener(buttonHighLigh);
@@ -200,7 +206,12 @@ public class PlayTheTutorial : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-     
+        if(GetComponent<PlayTheTutorial>().enabled == false)
+        {
+            ICVbuttonON = false;
+            DozerButtonON = false;
+
+        }
 
         if (camera.GetComponent<CameraLookAround>().isup == true)
         {
@@ -222,12 +233,14 @@ public class PlayTheTutorial : MonoBehaviour {
         if (camera.GetComponent<CameraLookAround>().isup == true && camera.GetComponent<CameraLookAround>().isdown == true && camera.GetComponent<CameraLookAround>().isrigh == true && camera.GetComponent<CameraLookAround>().isleft == true)
         {
             Lookforthefire.SetActive(true);
+            up.SetActive(true);
             
         }
 
         if(BuildICV.activeInHierarchy)
         {
             Lookforthefire.SetActive(false);
+            up.SetActive(false);
 
             var distanceToCube = Vector3.Distance(Camera.main.transform.position, cube.transform.position);
 
@@ -251,6 +264,8 @@ public class PlayTheTutorial : MonoBehaviour {
 
         if (GameObject.Find("ICV(Clone)") != null)
         {
+            Lookforthefire.SetActive(false);
+            up.SetActive(false);
             Down.SetActive(false);
             WheretobuildICV.SetActive(false);
             WheretobuildICVOne.SetActive(false);
@@ -301,6 +316,12 @@ public class PlayTheTutorial : MonoBehaviour {
             DozerbuttonhighLightTwo.SetActive(false);
             DozerbuttonhighLightThree.SetActive(false);
             DozerButtonON = false;
+
+            dozerWhatToDo.SetActive(true);
+            dozerMovementtut.SetActive(true);
+            dozerMovementtutOne.SetActive(true);
+            dozerMovementtutTwo.SetActive(true);
+            dozerMovementtutThree.SetActive(true);
         }
 
             if (ICVbuttonON == true)
@@ -338,6 +359,12 @@ public class PlayTheTutorial : MonoBehaviour {
 
     }
 
+     void OnDisable()
+    {
+        ICVbuttonON = false;
+        DozerButtonON = false;
+    }
+
     void buttonHighLigh()
     {
         ICVbuttonON = true;
@@ -348,5 +375,6 @@ public class PlayTheTutorial : MonoBehaviour {
     {
         DozerButtonON = true;
     }
+
  }
 
