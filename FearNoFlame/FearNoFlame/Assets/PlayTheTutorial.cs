@@ -68,7 +68,11 @@ public class PlayTheTutorial : MonoBehaviour {
     public GameObject dozerMovementtutTwo;
     public GameObject dozerMovementtutThree;
 
+    public GameObject theWhiteGround;
+
     public GameObject Down;
+
+    
 
     
 
@@ -142,6 +146,8 @@ public class PlayTheTutorial : MonoBehaviour {
         dozerMovementtutTwo = GameObject.Find("DM (2)");
         dozerMovementtutThree = GameObject.Find("DM (3)");
 
+        theWhiteGround = GameObject.Find("TheWhiteGround");
+
         Down = GameObject.Find("Down");
 
         dozerWhatToDo = GameObject.Find("Dozer");
@@ -194,6 +200,9 @@ public class PlayTheTutorial : MonoBehaviour {
         dozerMovementtutThree.SetActive(false);
 
         dozerWhatToDo.SetActive(false);
+
+        theWhiteGround.SetActive(false);
+
 
 
         Button LTbuttoned = LTbutton.GetComponent<Button>();
@@ -355,9 +364,25 @@ public class PlayTheTutorial : MonoBehaviour {
             DozerbuttonhighLightThree.SetActive(false);
         }
 
+        if (GameObject.FindGameObjectWithTag("dozer") != null && GameObject.FindGameObjectWithTag("dozer").GetComponent<GradingGround>().movementNumber >= 360)
+            {
+                dozerWhatToDo.SetActive(false);
+                dozerMovementtut.SetActive(false);
+                dozerMovementtutOne.SetActive(false);
+                dozerMovementtutTwo.SetActive(false);
+                dozerMovementtutThree.SetActive(false);
+                theWhiteGround.SetActive(true);
+                buttonHighLight.SetActive(true);
+                buttonHighLightOne.SetActive(true);
+                buttonHighLightTwo.SetActive(true);
+                buttonHighLightThree.SetActive(true);
+            }
+    
 
 
     }
+
+
 
      void OnDisable()
     {
