@@ -72,13 +72,24 @@ public class PlayTheTutorial : MonoBehaviour {
 
     public GameObject Down;
 
-    
+    public GameObject movementturn;
+
+
+    public Button BuildButton;
+    public Button MovementButton;
+    public Button ActionButton;
 
     
 
     public bool ICVbuttonON;
 
     public bool DozerButtonON;
+
+    public bool buildbutton;
+
+    public bool movementbuttonis;
+
+
 
 
 
@@ -152,9 +163,11 @@ public class PlayTheTutorial : MonoBehaviour {
 
         dozerWhatToDo = GameObject.Find("Dozer");
 
+        movementturn = GameObject.Find("MovementRound");
 
-
-
+        BuildButton = GameObject.Find("Appliance").GetComponent<Button>();
+        MovementButton = GameObject.Find("End Movement Round").GetComponent<Button>();
+        ActionButton = GameObject.Find("lol");
 
         Lookforthefire.SetActive(false);
         BuildICV.SetActive(false);
@@ -203,12 +216,18 @@ public class PlayTheTutorial : MonoBehaviour {
 
         theWhiteGround.SetActive(false);
 
-
+        movementturn.SetActive(false);
 
         Button LTbuttoned = LTbutton.GetComponent<Button>();
         LTbutton.onClick.AddListener(buttonHighLigh);
         Button dozerBt = dozerB.GetComponent<Button>();
         dozerB.onClick.AddListener(DozerButtonOnNow);
+
+        Button buildButtonNow = BuildButton.GetComponent<Button>();
+        BuildButton.onClick.AddListener(BuildButtonisON);
+
+        Button moveButtonNow = MovementButton.GetComponent<Button>();
+        moveButtonNow.onClick.AddListener(MovementButtonMain);
 
     }
 
@@ -377,7 +396,47 @@ public class PlayTheTutorial : MonoBehaviour {
                 buttonHighLightTwo.SetActive(true);
                 buttonHighLightThree.SetActive(true);
             }
-    
+
+        if(buildbutton == true)
+        {
+            theWhiteGround.SetActive(false);
+            buttonHighLight.SetActive(false);
+            buttonHighLightOne.SetActive(false);
+            buttonHighLightTwo.SetActive(false);
+            buttonHighLightThree.SetActive(false);
+
+            movementturn.SetActive(true);
+            buttonHighLight.SetActive(true);
+            buttonHighLightOne.SetActive(true);
+            buttonHighLightTwo.SetActive(true);
+            buttonHighLightThree.SetActive(true);
+        }
+        else
+        {
+            theWhiteGround.SetActive(false);
+            buttonHighLight.SetActive(false);
+            buttonHighLightOne.SetActive(false);
+            buttonHighLightTwo.SetActive(false);
+            buttonHighLightThree.SetActive(false);
+
+            movementturn.SetActive(false);
+            buttonHighLight.SetActive(false);
+            buttonHighLightOne.SetActive(false);
+            buttonHighLightTwo.SetActive(false);
+            buttonHighLightThree.SetActive(false);
+        }
+
+        if(movementbuttonis == true)
+        {
+            movementturn.SetActive(false);
+
+            buttonHighLight.SetActive(true);
+            buttonHighLightOne.SetActive(true);
+            buttonHighLightTwo.SetActive(true);
+            buttonHighLightThree.SetActive(true);
+        }
+
+
 
 
     }
@@ -388,6 +447,7 @@ public class PlayTheTutorial : MonoBehaviour {
     {
         ICVbuttonON = false;
         DozerButtonON = false;
+        buildbutton = false;
     }
 
     void buttonHighLigh()
@@ -399,6 +459,16 @@ public class PlayTheTutorial : MonoBehaviour {
     void DozerButtonOnNow()
     {
         DozerButtonON = true;
+    }
+
+    void BuildButtonisON()
+    {
+        buildbutton = true;
+    }
+
+    void MovementButtonMain()
+    {
+        movementbuttonis = true;
     }
 
  }
