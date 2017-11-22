@@ -166,7 +166,7 @@ public class GameManager : MonoBehaviour {
 
     void SetOnFire()
     {
-        startFire = UnityEngine.Random.Range(2, 6);
+        startFire = UnityEngine.Random.Range(2, 4);
 
         
             if (startFire == 1)

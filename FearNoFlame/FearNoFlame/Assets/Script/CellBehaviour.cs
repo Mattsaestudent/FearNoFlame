@@ -56,7 +56,7 @@ public class CellBehaviour : MonoBehaviour {
     public GameObject WheretobuildICVTwo;
     public GameObject WheretobuildICVThree;
 
-
+    public GameObject mainTutScript;
 
     void Awake()
     {
@@ -81,6 +81,8 @@ public class CellBehaviour : MonoBehaviour {
         WheretobuildICVOne = GameObject.Find("WheretobuildICV (1)");
         WheretobuildICVTwo = GameObject.Find("WheretobuildICV (2)");
         WheretobuildICVThree = GameObject.Find("WheretobuildICV (3)");
+
+        mainTutScript = GameObject.Find("Canvas");
     }
 
     void Start()
@@ -342,7 +344,12 @@ public class CellBehaviour : MonoBehaviour {
                     {
                         Lookforthefire.SetActive(false);
                         BuildICV.SetActive(true);
-                       
+
+                        if (mainTutScript.GetComponent<PlayTheTutorial>().actionbuttonis == true)
+                        {
+                            BuildICV.SetActive(false);
+                        }
+
                     }
                   
                 }
@@ -374,7 +381,12 @@ public class CellBehaviour : MonoBehaviour {
                         Lookforthefire.SetActive(false);
                         BuildICV.SetActive(true);
 
-                       
+                        if (mainTutScript.GetComponent<PlayTheTutorial>().actionbuttonis == true)
+                        {
+                            BuildICV.SetActive(false);
+                        }
+
+
 
                     }
                 }
@@ -400,7 +412,11 @@ public class CellBehaviour : MonoBehaviour {
                         Lookforthefire.SetActive(false);
                         BuildICV.SetActive(true);
 
-                       
+                        if (mainTutScript.GetComponent<PlayTheTutorial>().actionbuttonis == true)
+                        {
+                            BuildICV.SetActive(false);
+                        }
+
 
 
 
@@ -412,10 +428,12 @@ public class CellBehaviour : MonoBehaviour {
                 fireisvisablehigh = false;
             }
 
-           
+          
+
+
         }
 
-        
+
 
     }
 
