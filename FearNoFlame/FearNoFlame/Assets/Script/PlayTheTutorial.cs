@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class PlayTheTutorial : MonoBehaviour {
 
+  public  int EndApplianceint;
+    int EndMovementRoundint;
+    int ActionRoundint;
+
+
     public Button LTbutton;
     public Button dozerB;
 
@@ -84,6 +89,10 @@ public class PlayTheTutorial : MonoBehaviour {
     public GameObject Actionbutton;
 
     public GameObject explainBuild;
+
+    public GameObject endAppliance;
+
+    public GameObject endMovementRounds;
 
     public bool ICVbuttonON;
 
@@ -180,6 +189,9 @@ public class PlayTheTutorial : MonoBehaviour {
         BuildButton = GameObject.Find("Appliance").GetComponent<Button>();
         MovementButton = GameObject.Find("End Movement Round").GetComponent<Button>();
         ActionButton = GameObject.Find("Action").GetComponent<Button>();
+
+        endAppliance = GameObject.Find("EndAppliance");
+        endMovementRounds = GameObject.Find("EndMovementRound");
 
         Lookforthefire.SetActive(false);
         BuildICV.SetActive(false);
@@ -481,12 +493,21 @@ public class PlayTheTutorial : MonoBehaviour {
 
             explainBuild.SetActive(true);
         }
+       
+        
 
         if (GameObject.Find("LTspawn(Clone)") || GameObject.Find("2.4U(Clone)") || GameObject.Find("3.4U(Clone)") || GameObject.Find("4.4Uspawn(Clone)") || GameObject.Find("Plane(Clone)") || GameObject.Find("Helitack(Clone)"))
         {
             explainBuild.SetActive(false);
-        }
+            endAppliance.SetActive(true);
 
+            Actionbutton.SetActive(false);
+
+            toggle.GetComponent<UnityEngine.UI.Toggle>().isOn = false;
+
+            //  actionbuttonis = false;
+        }
+        
     }
 
 
@@ -512,12 +533,13 @@ public class PlayTheTutorial : MonoBehaviour {
     void BuildButtonisON()
     {
         buildbutton = true;
+      
     }
 
     void MovementButtonMain()
     {
         movementbuttonis = true;
-
+        EndApplianceint += 1;
     }
 
     void ActionButtonScript()

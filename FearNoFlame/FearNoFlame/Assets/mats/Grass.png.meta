@@ -71,6 +71,8 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+<<<<<<< HEAD:FearNoFlame/FearNoFlame/Assets/mats/Grass.png.meta
+=======
   - buildTarget: Android
     maxTextureSize: 2048
     textureFormat: -1
@@ -87,6 +89,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+>>>>>>> 197adf7a8f3e776184d6cae835f0b779fe1755fd:FearNoFlame/FearNoFlame/Assets/mats/Grass.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []

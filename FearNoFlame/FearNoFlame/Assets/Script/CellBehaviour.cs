@@ -10,9 +10,9 @@ public class CellBehaviour : MonoBehaviour {
 
 
     public bool IsonFire;
-    public Material LowFire;
-    public Material MiddleFire;
-    public Material HighFire;
+   // public Material LowFire;
+   // public Material MiddleFire;
+  //  public Material HighFire;
     public Material BurnGround;
     public Material TreeGreen;
     public Material bushMat;
@@ -57,6 +57,7 @@ public class CellBehaviour : MonoBehaviour {
     public GameObject WheretobuildICVThree;
 
     public GameObject mainTutScript;
+    public GameObject fire;
 
     void Awake()
     {
@@ -83,6 +84,11 @@ public class CellBehaviour : MonoBehaviour {
         WheretobuildICVThree = GameObject.Find("WheretobuildICV (3)");
 
         mainTutScript = GameObject.Find("Canvas");
+
+        fire = GameObject.Find("Fireformyproject_0");
+        fire.SetActive(false);
+
+        
     }
 
     void Start()
@@ -248,16 +254,17 @@ public class CellBehaviour : MonoBehaviour {
     {
         if (currentState == StatesOfCell.LowIntFire)
         {
-            meshRenderer.sharedMaterial = LowFire;
+            fire.SetActive(true);
         } else if (currentState == StatesOfCell.MiddleIntFire)
         {
-            meshRenderer.sharedMaterial = MiddleFire;
+            fire.SetActive(true);
         } else if (currentState == StatesOfCell.HighIntFire)
         {
-            meshRenderer.sharedMaterial = HighFire;
+            fire.SetActive(true);
         } else if (currentState == StatesOfCell.BurntGround)
         {
             meshRenderer.sharedMaterial = BurnGround;
+            fire.SetActive(false);
         } else
         {
             if (currentState == StatesOfCell.StillGreen)

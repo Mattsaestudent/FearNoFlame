@@ -438,7 +438,7 @@ public class GameManager : MonoBehaviour {
                 mainFireTruck.interactable = false;
                 mainPlane.interactable = false;
                 mainEarthmoving.interactable = true;
-
+                
             }
             
              if(isPlayerSecondTurn == false)
@@ -709,6 +709,10 @@ public class GameManager : MonoBehaviour {
             waterTotal = 0;
         }
 
+        if(waterTotal > 1000)
+        {
+            waterTotal = 1000;
+        }
 
         if (isLowIntFire == false && isMiddleIntFire == false && isHighIntFire == false && GameObject.Find("ICV(Clone)") != null)
         {

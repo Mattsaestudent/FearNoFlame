@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 706ae35abb2496f46b9cc0bb967dc2db
+guid: cf84d64ab2a049440b558d95d22b3c1d
 timeCreated: 1511386500
 licenseType: Free
 TextureImporter:
@@ -71,25 +71,6 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD:FearNoFlame/FearNoFlame/Assets/mats/Brush.png.meta
-=======
-  - buildTarget: Android
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-  - buildTarget: WebGL
-    maxTextureSize: 2048
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
->>>>>>> 197adf7a8f3e776184d6cae835f0b779fe1755fd:FearNoFlame/FearNoFlame/Assets/mats/Brush.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
