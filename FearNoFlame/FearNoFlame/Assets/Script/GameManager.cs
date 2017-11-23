@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class GameManager : MonoBehaviour {
@@ -384,6 +385,8 @@ public class GameManager : MonoBehaviour {
 			CallNextUpdate ();
 			CallNextUpdate ();
 			CallNextUpdate ();
+            CallNextUpdate();
+            CallNextUpdate();
 
             if (moneyplease == true)
             {
@@ -563,11 +566,15 @@ public class GameManager : MonoBehaviour {
         else if(TBStates == TurnBasedStates.PlayerWin)
         {
             win.SetActive(true);
+            StartCoroutine(FinishGame());
+            
             
         }
         else if(TBStates == TurnBasedStates.PlayerLose)
         {
             lose.SetActive(true);
+            StartCoroutine(FinishGame());
+
         }
 			
 
@@ -714,6 +721,12 @@ public class GameManager : MonoBehaviour {
        
         
 
+    }
+
+    IEnumerator FinishGame()
+    {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene(0);
     }
 
 
