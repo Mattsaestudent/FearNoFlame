@@ -385,8 +385,7 @@ public class GameManager : MonoBehaviour {
 			CallNextUpdate ();
 			CallNextUpdate ();
 			CallNextUpdate ();
-            CallNextUpdate();
-            CallNextUpdate();
+         
 
             if (moneyplease == true)
             {

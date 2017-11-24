@@ -67,7 +67,7 @@ public class GradingGround : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "terrain") {
 			for (int i = 0; i < grounds.Count; i++) {
-				grounds [i].GetComponent<Renderer> ().material.color = Color.white;
+				grounds [i].GetComponent<Renderer> ().material.color = Color.black;
 				grounds [i].GetComponent<CellBehaviour> ().FireDangerIndex = 0;
                 grounds[i].GetComponent<CellBehaviour>().enviromentalMakeUp = 0;
 			}
