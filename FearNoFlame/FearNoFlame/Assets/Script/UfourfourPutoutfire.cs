@@ -23,7 +23,10 @@ public class UfourfourPutoutfire : MonoBehaviour
     void Update()
     {
 
-
+        if (grounds != null)
+        {
+            return;
+        }
 
 
 
@@ -50,10 +53,10 @@ public class UfourfourPutoutfire : MonoBehaviour
 
     public void CheckforFire()
     {
-        grounds[0].GetComponent<CellBehaviour>().IsonFire = false;
-        grounds[1].GetComponent<CellBehaviour>().IsonFire = false;
-        grounds[2].GetComponent<CellBehaviour>().IsonFire = false;
-        grounds[3].GetComponent<CellBehaviour>().IsonFire = false;
-        grounds[4].GetComponent<CellBehaviour>().IsonFire = false;
+        for (int i = 0; i < grounds.Count; i++)
+        {
+            grounds[i].GetComponent<CellBehaviour>().IsonFire = false;
+
+        }
     }
 }
