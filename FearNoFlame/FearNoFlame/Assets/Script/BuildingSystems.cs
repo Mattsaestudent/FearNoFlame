@@ -84,7 +84,7 @@ public class BuildingSystems : MonoBehaviour
                             }
                             else
                             {
-                                Instantiate(selectedObject, new Vector3(hit.point.x, 0.51f, hit.point.z), Quaternion.Euler(90, 0, 0));
+                                Instantiate(selectedObject, new Vector3(hit.point.x, 0.51f, hit.point.z), Quaternion.Euler(0, 90, 0));
                             }
 
                             if (selectedObject == selectGameObject[0])

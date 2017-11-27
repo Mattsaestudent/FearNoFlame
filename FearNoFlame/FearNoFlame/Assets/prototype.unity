@@ -563,7 +563,7 @@ MonoBehaviour:
   waterbomerspawnbutton: {fileID: 1398420251}
   helitackspawnbutton: {fileID: 706730035}
   selectGameObject:
-  - {fileID: 1422120783202580, guid: 8ac44a75c81c9844d90b19c0d2be87fb, type: 2}
+  - {fileID: 1521597461576360, guid: 3fe03c97a84835c4e9b169e7ade515df, type: 2}
   - {fileID: 1826500345174384, guid: 879155f78a156b74daf73c4b16097620, type: 2}
   - {fileID: 1595684845898606, guid: 7e5603d65bda91e4baf60f8c3fecbe46, type: 2}
   - {fileID: 1971338248307914, guid: 31e1ad087b4f5c6448de64b227dcc696, type: 2}
@@ -1174,7 +1174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &181800374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5435,7 +5435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 49, y: 0}
+  m_AnchoredPosition: {x: 12.2, y: 25.5}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854395073
@@ -10647,7 +10647,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1962610797
 MonoBehaviour:
   m_ObjectHideFlags: 0

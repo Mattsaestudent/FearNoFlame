@@ -53,6 +53,8 @@ public class GradingGround : MonoBehaviour {
         {
             donotmove = false;
         }
+
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -79,4 +81,9 @@ public class GradingGround : MonoBehaviour {
         
 
 	}
+
+    float AngleBetweenPoints(Vector2 a, Vector2 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
+    }
 }
