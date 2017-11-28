@@ -1,4 +1,4 @@
-WindowsStandalone
+WebGL
 dc07d7ad69b399a46e92c483bf1c04ca UnityEngine.Analytics.dll:UnityEngine.Analytics.AnalyticsTracker
 10d1d999002f3773eab9c0ce0acb9533 Assembly-CSharp.dll:.BuildingSystems
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
