@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: c753e4aa5f3ea7f48acd1aae7612701f
+timeCreated: 1512060492
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: AlphaSmoke
+  fontNames:
+  - AlphaSmoke
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
