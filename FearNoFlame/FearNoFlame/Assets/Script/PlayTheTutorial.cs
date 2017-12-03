@@ -29,7 +29,7 @@ public class PlayTheTutorial : MonoBehaviour {
 
     public GameObject toggle;
 
-    public GameObject prefab;
+  
 
     public GameObject WheretobuildICV;
     public GameObject WheretobuildICVOne;

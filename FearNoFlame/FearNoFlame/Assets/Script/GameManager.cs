@@ -459,7 +459,7 @@ public class GameManager : MonoBehaviour {
 
 
             }
-            if (GameObject.Find("D10spawn 1(Clone)") !=null)
+            if (GameObject.Find("Dozer_low(Clone)") !=null)
             {
          
                 icvSpawnButton.interactable = false;

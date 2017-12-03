@@ -3,7 +3,7 @@ guid: dff83fec6c824c044b86c0f1ef2fc9f0
 timeCreated: 1487722169
 licenseType: Store
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: polySurface11
     100002: polySurface12
@@ -19,6 +19,11 @@ ModelImporter:
     100022: transform12
     100024: transform13
     100026: //RootNode
+    100028: Body
+    100030: Pipe
+    100032: Pump
+    100034: Tank
+    100036: Wheels
     400000: polySurface11
     400002: polySurface12
     400004: polySurface13
@@ -33,41 +38,92 @@ ModelImporter:
     400022: transform12
     400024: transform13
     400026: //RootNode
+    400028: Body
+    400030: Pipe
+    400032: Pump
+    400034: Tank
+    400036: Wheels
     2300000: polySurface11
     2300002: polySurface12
     2300004: polySurface13
     2300006: polySurface14
     2300008: polySurface42
+    2300010: Body
+    2300012: Pipe
+    2300014: Pump
+    2300016: Tank
+    2300018: Wheels
     3300000: polySurface11
     3300002: polySurface12
     3300004: polySurface13
     3300006: polySurface14
     3300008: polySurface42
+    3300010: Body
+    3300012: Pipe
+    3300014: Pump
+    3300016: Tank
+    3300018: Wheels
     4300000: polySurface11
     4300002: polySurface12
     4300004: polySurface13
     4300006: polySurface14
     4300008: polySurface42
+    4300010: Body
+    4300012: Tank
+    4300014: Pump
+    4300016: Pipe
+    4300018: Wheels
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #47'
+    second: {fileID: 2100000, guid: a7c971441d8d34d49976a64ce19e5d4a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #48'
+    second: {fileID: 2100000, guid: 585dcb9e66487fa4ba2bb5320b59d8e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #49'
+    second: {fileID: 2100000, guid: 69d8bfcaa43daf941872bb3092c84404, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #50'
+    second: {fileID: 2100000, guid: 0ddffd2d1fd4d3441b401b1fdc8c4a47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 1e751bc62af15ac4bbc1f519c2d08786, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -75,7 +131,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -91,9 +150,11 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
+    serializedVersion: 2
     human: []
     skeleton: []
     armTwist: 0.5
@@ -104,7 +165,10 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
   humanoidOversampling: 1
