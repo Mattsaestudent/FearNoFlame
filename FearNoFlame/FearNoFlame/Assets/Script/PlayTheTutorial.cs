@@ -362,7 +362,7 @@ public class PlayTheTutorial : MonoBehaviour {
 
         }
 
-        if (GameObject.Find("D10spawn 1(Clone)") != null)
+        if (GameObject.Find("Dozer_low(Clone)") != null)
         {
             BuildtheDozer.SetActive(false);
             wheretoBuildDozer.SetActive(false);
@@ -418,7 +418,7 @@ public class PlayTheTutorial : MonoBehaviour {
             DozerbuttonhighLightThree.SetActive(false);
         }
 
-        if (GameObject.FindGameObjectWithTag("dozer") != null && GameObject.FindGameObjectWithTag("dozer").GetComponent<GradingGround>().movementNumber >= 360)
+        if (GameObject.FindGameObjectWithTag("dozer") != null && GameObject.FindGameObjectWithTag("dozer").GetComponent<GradingGround>().movementNumber >= 167)
         {
 
             dozerWhatToDo.SetActive(false);
@@ -496,7 +496,7 @@ public class PlayTheTutorial : MonoBehaviour {
        
         
 
-        if (GameObject.Find("LTspawn(Clone)") || GameObject.Find("2.4U(Clone)") || GameObject.Find("3.4U(Clone)") || GameObject.Find("4.4Uspawn(Clone)") || GameObject.Find("Plane(Clone)") || GameObject.Find("Helitack(Clone)"))
+        if (GameObject.Find("LT(Clone)") || GameObject.Find("2.4U(Clone)") || GameObject.Find("3.4U(Clone)") || GameObject.Find("4.4Uspawn(Clone)") || GameObject.Find("Plane(Clone)") || GameObject.Find("Helitack(Clone)"))
         {
             explainBuild.SetActive(false);
             endAppliance.SetActive(true);

@@ -45,7 +45,7 @@ public class GradingGround : MonoBehaviour {
             }
         }
 
-        if (movementNumber >= 360)
+        if (movementNumber >= 167)
         {
             donotmove = true;
         }
@@ -82,8 +82,5 @@ public class GradingGround : MonoBehaviour {
 
 	}
 
-    float AngleBetweenPoints(Vector2 a, Vector2 b)
-    {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
-    }
+   
 }
