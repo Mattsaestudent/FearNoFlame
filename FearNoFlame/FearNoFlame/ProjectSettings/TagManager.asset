@@ -27,6 +27,10 @@ TagManager:
   - right
   - left
   - Look for the fire
+  - Options
+  - Pause
+  - Credits
+  - Controls
   layers:
   - Default
   - TransparentFX

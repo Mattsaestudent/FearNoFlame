@@ -59,6 +59,13 @@ public class CellBehaviour : MonoBehaviour {
     public GameObject mainTutScript;
     public GameObject fire;
 
+    public bool ltputthefireout;
+    public bool twofourputthefireout;
+    public bool threefourputthefireout;
+    public bool fourfourputthefireout;
+    public bool planeputthefireout;
+    public bool helitackputtheplaneout;
+
     void Awake()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -93,8 +100,14 @@ public class CellBehaviour : MonoBehaviour {
 
     void Start()
     {
-        
-    }
+        ltputthefireout = false;
+        ltputthefireout = false;
+        twofourputthefireout = false;
+        threefourputthefireout = false;
+        fourfourputthefireout = false;
+        planeputthefireout = false;
+        helitackputtheplaneout = false;
+}
 
 
 

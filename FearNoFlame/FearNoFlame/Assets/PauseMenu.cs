@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour {
 
-    public GameObject pausescreen;
-    public GameObject Optionscreen;
+    
     public AudioSource gamemusic;
+    public GameObject pauseMenu;
+    public GameObject optionsMenu;
 
     
 
     void Awake()
     {
-        pausescreen = GameObject.Find("Pause");
-        Optionscreen = GameObject.Find("Options");
-        pausescreen.SetActive(false);
-        Optionscreen.SetActive(false);
+        pauseMenu = GameObject.FindGameObjectWithTag("Pause");
+        optionsMenu = GameObject.FindGameObjectWithTag("Options");
 
         
+
+
 
     }
 
     // Use this for initialization
     void Start ()
     {
-        
+
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+
     }
 	
 	// Update is called once per frame
@@ -32,7 +36,7 @@ public class PauseMenu : MonoBehaviour {
     {
 		if(Input.GetKey(KeyCode.Escape))
         {
-            pausescreen.SetActive(true);
+            pauseMenu.SetActive(true);
             Time.timeScale = 0.1f;
             gamemusic.Pause();
         }
@@ -41,20 +45,20 @@ public class PauseMenu : MonoBehaviour {
 
     public void Gamereturn()
     {
-        pausescreen.SetActive(false);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1;
         gamemusic.Play();
     }
 
     public void Optionsscreen()
     {
-        pausescreen.SetActive(false);
-        Optionscreen.SetActive(true);
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(true);
     }
 
     public void BacktoPauseMenu()
     {
-        pausescreen.SetActive(true);
-        Optionscreen.SetActive(false);
+        pauseMenu.SetActive(true);
+        optionsMenu.SetActive(false);
     }
 }

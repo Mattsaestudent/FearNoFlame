@@ -26,6 +26,7 @@ public class UfourfourPutoutfire : MonoBehaviour
         if (grounds != null)
         {
             return;
+     
         }
 
 
@@ -56,6 +57,7 @@ public class UfourfourPutoutfire : MonoBehaviour
         for (int i = 0; i < grounds.Count; i++)
         {
             grounds[i].GetComponent<CellBehaviour>().IsonFire = false;
+            grounds[i].GetComponent<CellBehaviour>().fourfourputthefireout = true;
 
         }
     }

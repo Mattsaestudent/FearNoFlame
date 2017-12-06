@@ -55,6 +55,7 @@ public class PutOutFire34 : MonoBehaviour {
         for (int i = 0; i < grounds.Count; i++)
         {
             grounds[i].GetComponent<CellBehaviour>().IsonFire = false;
+            grounds[i].GetComponent<CellBehaviour>().threefourputthefireout = true;
 
         }
 

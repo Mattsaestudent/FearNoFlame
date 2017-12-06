@@ -24,6 +24,7 @@ public class PutOutFireHelitack : MonoBehaviour {
         if (grounds != null)
         {
             return;
+            CheckforFire();
         }
 
 
@@ -49,11 +50,12 @@ public class PutOutFireHelitack : MonoBehaviour {
         grounds.Remove(other.gameObject);
     }
 
-   public void CheckforFire()
-    {
+      public void CheckforFire()
+     {
         for (int i = 0; i < grounds.Count; i++)
         {
             grounds[i].GetComponent<CellBehaviour>().IsonFire = false;
+            grounds[i].GetComponent<CellBehaviour>().helitackputtheplaneout = true;
 
         }
 

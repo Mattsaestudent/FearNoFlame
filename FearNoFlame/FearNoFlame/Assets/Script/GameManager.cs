@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 
 public class GameManager : MonoBehaviour {
@@ -106,7 +107,7 @@ public class GameManager : MonoBehaviour {
 	public List<GameObject> fourfours;
 	public List<GameObject> planes;
 	public List<GameObject> helitack;
-    public List<GameObject> dozer;
+    
 
     public Button mainLTButton;
     public Button mainFireTruck;
@@ -114,6 +115,13 @@ public class GameManager : MonoBehaviour {
     public Button mainEarthmoving;
 
     public GameObject Lookforthefire;
+
+    public int LTputout;
+    public int TwofourPutout;
+    public int ThirdfourPutout;
+    public int fourforPutout;
+    public int planePutout;
+    public int helitackPutout;
 
 
 
@@ -153,7 +161,7 @@ public class GameManager : MonoBehaviour {
 		fourfours = new List<GameObject> ();
 		planes = new List<GameObject> ();
 		helitack = new List<GameObject> ();
-        dozer = new List<GameObject>();
+        
 
 
 
@@ -341,12 +349,7 @@ public class GameManager : MonoBehaviour {
 
 
 			if (TBStates == TurnBasedStates.FireSpread) {
-            for (int o = 0; o < dozer.Count; o++)
-            {
-                dozer[o].GetComponent<GradingGround>().movementNumber = 0;
-                
-               
-            }
+          
 
             for (int a = 0; a < lts.Count; a++ )
             {
@@ -478,7 +481,7 @@ public class GameManager : MonoBehaviour {
                 mainEarthmoving.interactable = true;
 
 
-                dozer.AddRange(GameObject.FindGameObjectsWithTag("dozer"));
+                
             }
 
            
@@ -565,6 +568,19 @@ public class GameManager : MonoBehaviour {
         else if(TBStates == TurnBasedStates.PlayerWin)
         {
             win.SetActive(true);
+
+            Analytics.CustomEvent("Fire out total", new Dictionary<string, object>
+        {
+            {"how many did LT putout", LTputout},
+                {"how many did 24 putout", TwofourPutout},
+                {"how many did 34 putout", ThirdfourPutout},
+                {"how many did 44 putout", fourforPutout},
+                {"how many did plane putout", planePutout},
+                {"how many did helitack putout", helitackPutout}
+
+        });
+
+
             StartCoroutine(FinishGame());
             
             
@@ -572,6 +588,16 @@ public class GameManager : MonoBehaviour {
         else if(TBStates == TurnBasedStates.PlayerLose)
         {
             lose.SetActive(true);
+            Analytics.CustomEvent("Fire out total", new Dictionary<string, object>
+        {
+            {"how many did LT putout", LTputout},
+                {"how many did 24 putout", TwofourPutout},
+                {"how many did 34 putout", ThirdfourPutout},
+                {"how many did 44 putout", fourforPutout},
+                {"how many did plane putout", planePutout},
+                {"how many did helitack putout", helitackPutout}
+
+        });
             StartCoroutine(FinishGame());
 
         }
@@ -732,6 +758,51 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+      public void countingSquares()
+    {
+        for (int i = 0; i < mycelllist.Count; i++)
+        {
+            if(mycelllist[i].ltputthefireout == true)
+            {
+                LTputout += 1;
+            }
+        }
+        for(int j = 0; j < mycelllist.Count;j++)
+        {
+            if(mycelllist[j].twofourputthefireout == true)
+            {
+                TwofourPutout += 1;
+            }
+        }
+        for(int q = 0; q < mycelllist.Count; q++)
+        {
+            if(mycelllist[q].threefourputthefireout == true)
+            {
+                ThirdfourPutout += 1;
+            }
+        }
+        for(int o = 0; o < mycelllist.Count; o++)
+        {
+            if(mycelllist[o].fourfourputthefireout == true)
+            {
+                fourforPutout += 1;
+            }
+        }
+        for(int l = 0; l < mycelllist.Count; l++)
+        {
+            if(mycelllist[l].planeputthefireout == true)
+            {
+                planePutout += 1;
+            }
+        }
+        for(int v = 0; v < mycelllist.Count;v++)
+        {
+            if(mycelllist[v].helitackputtheplaneout == true)
+            {
+                helitackPutout += 1;
+            }
+        }
+    }
 
 
 }
