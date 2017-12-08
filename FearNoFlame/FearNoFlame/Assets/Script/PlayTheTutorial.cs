@@ -323,6 +323,12 @@ public class PlayTheTutorial : MonoBehaviour {
                 smallSelecthighlightThree.SetActive(true);
             }
 
+            if (GameObject.Find("ICV(Clone)") != null)
+            {
+                Lookforthefire.SetActive(false);
+                up.SetActive(false);
+                distanceToCube = 0;
+            }
         }
 
         if (GameObject.Find("ICV(Clone)") != null)
@@ -359,7 +365,7 @@ public class PlayTheTutorial : MonoBehaviour {
             DozerbuttonhighLightTwo.SetActive(true);
             DozerbuttonhighLightThree.SetActive(true);
 
-
+            
         }
 
         if (GameObject.Find("Dozer_low(Clone)") != null)
@@ -420,17 +426,21 @@ public class PlayTheTutorial : MonoBehaviour {
 
         if (GameObject.FindGameObjectWithTag("dozer") != null && GameObject.FindGameObjectWithTag("dozer").GetComponent<GradingGround>().movementNumber >= 167)
         {
-
             dozerWhatToDo.SetActive(false);
             dozerMovementtut.SetActive(false);
             dozerMovementtutOne.SetActive(false);
             dozerMovementtutTwo.SetActive(false);
             dozerMovementtutThree.SetActive(false);
+
             theWhiteGround.SetActive(true);
-            buttonHighLight.SetActive(true);
-            buttonHighLightOne.SetActive(true);
-            buttonHighLightTwo.SetActive(true);
-            buttonHighLightThree.SetActive(true);
+                buttonHighLight.SetActive(true);
+                buttonHighLightOne.SetActive(true);
+                buttonHighLightTwo.SetActive(true);
+                buttonHighLightThree.SetActive(true);
+            
+
+         
+           
         }
 
         if (buildbutton == true)

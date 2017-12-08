@@ -10,16 +10,27 @@ public class GradingGround : MonoBehaviour {
     public bool donotmove;
     public UnitSelection unitSelection;
     public Movement movement;
-	// Use this for initialization
-	void Start ()
+    public Material ground;
+
+    Collider m_Collider;
+    Rigidbody rb;
+
+    // Use this for initialization
+
+    void Awake()
+    {
+        unitSelection = GameObject.Find("Selection").GetComponent<UnitSelection>();
+        movement = GameObject.Find("Selection").GetComponent<Movement>();
+        donotmove = false;
+    }
+    void Start ()
 	{
 		grounds = new List<GameObject>();
         movementNumber = 0;
-        donotmove = false;
+        m_Collider = GetComponent<Collider>();
 
-        unitSelection = GameObject.Find("Selection").GetComponent<UnitSelection>();
-        movement = GameObject.Find("Selection").GetComponent<Movement>();
-	}
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -36,22 +47,27 @@ public class GradingGround : MonoBehaviour {
                 {
                     unitSelection.highlightedPlayer = null;
                     unitSelection.SelectedPlayer = null;
+                    
                 }
-                else
-                {
-                    unitSelection.highlightedPlayer = unitSelection.SelectedPlayer;
-                    unitSelection.SelectedPlayer = movement.selectedGameObjectlol;
-                }
+              
             }
         }
 
         if (movementNumber >= 167)
         {
             donotmove = true;
+
+            m_Collider.enabled = !m_Collider.enabled;
+            unitSelection.enabled = !unitSelection.enabled;
+            movement.enabled = !movement.enabled;
+
+
+
         }
         else
         {
             donotmove = false;
+          
         }
 
 
@@ -69,7 +85,7 @@ public class GradingGround : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "terrain") {
 			for (int i = 0; i < grounds.Count; i++) {
-				grounds [i].GetComponent<Renderer> ().material.color = Color.black;
+				grounds [i].GetComponent<Renderer> ().material= ground;
 				grounds [i].GetComponent<CellBehaviour> ().FireDangerIndex = 0;
                 grounds[i].GetComponent<CellBehaviour>().enviromentalMakeUp = 0;
 			}

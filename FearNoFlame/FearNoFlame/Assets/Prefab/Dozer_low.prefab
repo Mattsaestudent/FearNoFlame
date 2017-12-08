@@ -376,3 +376,4 @@ MonoBehaviour:
   donotmove: 0
   unitSelection: {fileID: 0}
   movement: {fileID: 0}
+  ground: {fileID: 2100000, guid: 9fb1e70bcde6a7341bbb730825f47617, type: 2}

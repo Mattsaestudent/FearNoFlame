@@ -175,7 +175,7 @@ public class GameManager : MonoBehaviour {
 
     void SetOnFire()
     {
-        startFire = UnityEngine.Random.Range(2, 4);
+        startFire = 3;
 
         
             if (startFire == 1)
@@ -425,7 +425,7 @@ public class GameManager : MonoBehaviour {
             }
             if (GameObject.Find("ICV(Clone)") != null)
             {
-                icvSpawnButton.interactable = true;
+                icvSpawnButton.interactable = false;
                 ltSpawnButton.interactable = false;
                 fourfourSpawnButton.interactable = false;
                 threefourSpawnButton.interactable = false;
@@ -547,7 +547,7 @@ public class GameManager : MonoBehaviour {
             }
             for(int j = 0; j < threefourss.Count; j++)
             {
-                threefourss[j].GetComponent<PutOutFire34>();
+                threefourss[j].GetComponent<PutOutFire34>().CheckforFire();
             }
             for(int k =0; k < fourfours.Count; k++ )
             {

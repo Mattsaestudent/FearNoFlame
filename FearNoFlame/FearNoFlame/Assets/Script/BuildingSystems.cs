@@ -122,6 +122,7 @@ public class BuildingSystems : MonoBehaviour
 
                             else if (GameObject.Find("ICV(Clone)") != null)
                             {
+                                
                                 return;
                             }
 
@@ -129,6 +130,11 @@ public class BuildingSystems : MonoBehaviour
                         else
                         {
                             return;
+                        }
+
+                        if (GameObject.Find("ICV(Clone)") != null)
+                        {
+                            selectedObject = null;
                         }
 
                     }
@@ -154,8 +160,9 @@ public class BuildingSystems : MonoBehaviour
     void ICVspawn()
     {
         selectedObject = selectGameObject[1];
-
         
+
+
     }
 
     void LTspawn()

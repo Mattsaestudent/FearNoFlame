@@ -51,7 +51,7 @@ public class CameraLookAround : MonoBehaviour {
         }
        
      
-        pos.x = Mathf.Clamp(pos.x, 20f, 29.01922f);
+        pos.x = Mathf.Clamp(pos.x, 17f, 32f);
 
         pos.z = Mathf.Clamp(pos.z, 9.9f, 39.35721f);
         transform.position = pos;
