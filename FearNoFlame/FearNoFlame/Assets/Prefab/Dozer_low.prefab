@@ -377,3 +377,6 @@ MonoBehaviour:
   unitSelection: {fileID: 0}
   movement: {fileID: 0}
   ground: {fileID: 2100000, guid: 9fb1e70bcde6a7341bbb730825f47617, type: 2}
+  mr: {fileID: 23436798206085458}
+  mrs: {fileID: 23274643952766812}
+  mrss: {fileID: 23677695307893786}

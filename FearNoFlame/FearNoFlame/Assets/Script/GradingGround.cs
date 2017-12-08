@@ -12,6 +12,9 @@ public class GradingGround : MonoBehaviour {
     public Movement movement;
     public Material ground;
 
+    public MeshRenderer mr;
+    public MeshRenderer mrs;
+    public MeshRenderer mrss;
     Collider m_Collider;
     Rigidbody rb;
 
@@ -22,6 +25,9 @@ public class GradingGround : MonoBehaviour {
         unitSelection = GameObject.Find("Selection").GetComponent<UnitSelection>();
         movement = GameObject.Find("Selection").GetComponent<Movement>();
         donotmove = false;
+        mr.GetComponent<MeshRenderer>();
+        mrs.GetComponent<MeshRenderer>();
+        mrss.GetComponent<MeshRenderer>();
     }
     void Start ()
 	{
@@ -47,7 +53,9 @@ public class GradingGround : MonoBehaviour {
                 {
                     unitSelection.highlightedPlayer = null;
                     unitSelection.SelectedPlayer = null;
-                    
+                    mr.enabled = false;
+                    mrs.enabled = false;
+                    mrss.enabled = false;
                 }
               
             }
@@ -58,10 +66,6 @@ public class GradingGround : MonoBehaviour {
             donotmove = true;
 
             m_Collider.enabled = !m_Collider.enabled;
-            unitSelection.enabled = !unitSelection.enabled;
-            movement.enabled = !movement.enabled;
-
-
 
         }
         else
