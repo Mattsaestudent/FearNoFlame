@@ -61,7 +61,7 @@ public class GradingGround : MonoBehaviour {
             }
         }
 
-        if (movementNumber >= 167)
+        if (movementNumber >= 195)
         {
             donotmove = true;
 

@@ -424,7 +424,7 @@ public class PlayTheTutorial : MonoBehaviour {
             DozerbuttonhighLightThree.SetActive(false);
         }
 
-        if (GameObject.FindGameObjectWithTag("dozer") != null && GameObject.FindGameObjectWithTag("dozer").GetComponent<GradingGround>().movementNumber >= 167)
+        if (GameObject.FindGameObjectWithTag("dozer") != null && GameObject.FindGameObjectWithTag("dozer").GetComponent<GradingGround>().movementNumber >= 195)
         {
             dozerWhatToDo.SetActive(false);
             dozerMovementtut.SetActive(false);
